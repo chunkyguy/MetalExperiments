@@ -9,7 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WLRenderView : NSView
 - (void)setUp;
-- (void)redraw;
+- (void)redrawWithDeltaTime:(float)dt;
 @end
 
 NS_ASSUME_NONNULL_END

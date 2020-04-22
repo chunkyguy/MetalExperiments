@@ -76,7 +76,7 @@ typedef struct _WLVertex {
   _pipeline = [_device newRenderPipelineStateWithDescriptor:pipeDesc error:nil];
 }
 
-- (void)redraw
+- (void)redrawWithDeltaTime:(float)dt;
 {
   id<CAMetalDrawable> drawable = [_metalLayer nextDrawable];
   id<MTLTexture> texture = drawable.texture;

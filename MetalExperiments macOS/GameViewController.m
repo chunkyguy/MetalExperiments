@@ -4,13 +4,33 @@
 // 
 
 #import "GameViewController.h"
+#import <CoreVideo/CoreVideo.h>
 #import "WLRenderView.h"
+
+static uint64_t _lastTime = 0;
+
+static CVReturn callback(CVDisplayLinkRef CV_NONNULL displayLink,
+                         const CVTimeStamp * CV_NONNULL inNow,
+                         const CVTimeStamp * CV_NONNULL inOutputTime,
+                         CVOptionFlags flagsIn,
+                         CVOptionFlags * CV_NONNULL flagsOut,
+                         void * CV_NULLABLE displayLinkContext)
+{
+  uint64_t now = inNow->videoTime;
+  float dt = 0.01f;
+  if (_lastTime > 0) {
+    dt = (now - _lastTime)/((float)inNow->videoTimeScale);
+  }
+  _lastTime = now;
+  [(__bridge WLRenderView *)displayLinkContext redrawWithDeltaTime:dt];
+  return kCVReturnSuccess;
+}
+
 
 @implementation GameViewController
 {
   WLRenderView *_view;
-  
-  Renderer *_renderer;
+  CVDisplayLinkRef _displayLink;
 }
 
 - (void)viewDidLoad
@@ -19,29 +39,21 @@
   
   _view = (WLRenderView *)self.view;
   [_view setUp];
-  //
-  //    _view.device = MTLCreateSystemDefaultDevice();
-  //
-  //    if(!_view.device)
-  //    {
-  //        NSLog(@"Metal is not supported on this device");
-  //        self.view = [[NSView alloc] initWithFrame:self.view.frame];
-  //        return;
-  //    }
-  //
-  //    _renderer = [[Renderer alloc] initWithMetalKitView:_view];
-  //
-  //    [_renderer mtkView:_view drawableSizeWillChange:_view.bounds.size];
-  //
-  //    _view.delegate = _renderer;
-  
-  
+
+  CVDisplayLinkCreateWithActiveCGDisplays(&_displayLink);
+  CVDisplayLinkSetOutputCallback(_displayLink, callback, (__bridge void * _Nullable)(_view));
 }
 
 - (void)viewDidAppear
 {
   [super viewDidAppear];
-  [_view redraw];
+  CVDisplayLinkStart(_displayLink);
+}
+
+- (void)viewDidDisappear
+{
+  [super viewDidDisappear];
+  CVDisplayLinkStart(_displayLink);
 }
 
 @end
