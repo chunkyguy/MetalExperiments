@@ -15,9 +15,20 @@ struct Vertex {
   float4 color;
 };
 
-vertex Vertex vert_main(device Vertex *vertices[[buffer(0)]], uint vid [[vertex_id]])
+struct Uniforms {
+  float4x4 mvpMatrix;
+};
+
+vertex Vertex vert_main(
+  device Vertex *vertices [[buffer(0)]],
+  constant Uniforms *uniforms [[buffer(1)]],
+  uint vid [[vertex_id]]
+)
 {
-  return vertices[vid];
+  Vertex out;
+  out.position = uniforms->mvpMatrix * vertices[vid].position;
+  out.color = vertices[vid].color;
+  return out;
 }
 
 fragment float4 frag_main(Vertex v [[stage_in]])
