@@ -174,8 +174,8 @@ static const NSUInteger MaxBuffersInFlight = 3;
     uniforms->projectionMatrix = _projectionMatrix;
 
     vector_float3 rotationAxis = {1, 1, 0};
-    matrix_float4x4 modelMatrix = matrix4x4_rotation(_rotation, rotationAxis);
-    matrix_float4x4 viewMatrix = matrix4x4_translation(0.0, 0.0, -8.0);
+    matrix_float4x4 modelMatrix = wl_matrix4x4_rotation(_rotation, rotationAxis);
+    matrix_float4x4 viewMatrix = wl_matrix4x4_translation(0.0, 0.0, -8.0);
 
     uniforms->modelViewMatrix = matrix_multiply(viewMatrix, modelMatrix);
 
@@ -266,7 +266,7 @@ static const NSUInteger MaxBuffersInFlight = 3;
     /// Respond to drawable size or orientation changes here
 
     float aspect = size.width / (float)size.height;
-    _projectionMatrix = matrix_perspective_right_hand(65.0f * (M_PI / 180.0f), aspect, 0.1f, 100.0f);
+    _projectionMatrix = wl_matrix_perspective_right_hand(65.0f * (M_PI / 180.0f), aspect, 0.1f, 100.0f);
 }
 
 #pragma mark Matrix Math Utilities

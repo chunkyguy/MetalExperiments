@@ -11,31 +11,31 @@
 using namespace metal;
 
 struct Light {
-  float3 dir, ambient, diffuse, specular;
+  float4 position;
+  float3 diffuse;
+  float3 intensity;
 };
 
 constant Light gLight = {
-  .dir = { 0.13, 0.72, 0.68 },
-  .ambient = { 0.7, 0.7, 0.05 },
-  .diffuse = { 0.9 },
-  .specular = { 1.0 }
+  .position = { 5.0, 5.0, 2.0, 1.0f },
+  .diffuse = { 0.9, 0.5, 0.3 },
+  .intensity = { 1.0, 1.0, 1.0 }
 };
 
 struct VertexIn {
   float4 position;
-  float4 normal;
+  float3 normal;
 };
 
 struct VertexOut {
   float4 position [[position]];
-  float3 eye;
-  float3 normal;
+  float3 lightIntensity;
 };
 
 struct Uniforms {
-  float4x4 mvpMatrix;
   float4x4 mvMatrix;
   float3x3 nMatrix;
+  float4x4 mvpMatrix;
 };
 
 vertex VertexOut vert_main(
@@ -44,18 +44,18 @@ vertex VertexOut vert_main(
   uint vid [[vertex_id]]
 )
 {
-  VertexOut out;
-  out.position = uniforms->mvpMatrix * vertices[vid].position;
-  out.eye = (uniforms->mvMatrix * vertices[vid].position).xyz * -1;
-  out.normal = uniforms->nMatrix * vertices[vid].normal.xyz;
+  float4 eyePos = uniforms->mvMatrix * vertices[vid].position;
+  float3 eyeNormal = normalize(uniforms->nMatrix * vertices[vid].normal);
+  float3 lightDir = normalize(float3(gLight.position - eyePos));
+
+  VertexOut out {
+    .position = uniforms->mvpMatrix * vertices[vid].position,
+    .lightIntensity = gLight.diffuse * gLight.intensity * max(0.0, dot(lightDir, eyeNormal))
+  };
   return out;
 }
 
 fragment float4 frag_main(VertexOut v [[stage_in]])
 {
-  float factor = dot(normalize(v.normal), normalize(gLight.dir));
-//  float3 eyeDir = normalize(v.eye);
-//  float3 halfway = normalize(gLight.dir + eyeDir);
-
-  return float4(gLight.ambient * factor, 1.0);
+  return float4(normalize(v.lightIntensity), 1.0);
 }

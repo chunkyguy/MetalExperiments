@@ -36,15 +36,15 @@
   }
 
   WLVertex vertices[] = {
-    {.position = {-1.0f, 1.0f, 1.0f, 1.0f}, .normal = {0.0f, 0.0f, 1.0f, 0.0f}},
-    {.position = {-1.0f, -1.0f, 1.0f, 1.0f}, .normal = {0.0f, 0.0f, 1.0f, 0.0f}},
-    {.position = {1.0f, -1.0f, 1.0f, 1.0f}, .normal = {0.0f, 0.0f, 1.0f, 0.0f}},
-    {.position = {1.0f, 1.0f, 1.0f, 1.0f}, .normal = {0.0f, 0.0f, 1.0f, 0.0f}},
+    {.position = {-1.0f, 1.0f, 1.0f, 1.0f}, .normal = {0.0f, 0.0f, 1.0f}},
+    {.position = {-1.0f, -1.0f, 1.0f, 1.0f}, .normal = {0.0f, 0.0f, 1.0f}},
+    {.position = {1.0f, -1.0f, 1.0f, 1.0f}, .normal = {0.0f, 0.0f, 1.0f}},
+    {.position = {1.0f, 1.0f, 1.0f, 1.0f}, .normal = {0.0f, 0.0f, 1.0f}},
 
-    {.position = {-1.0f, 1.0f, -1.0f, 1.0f}, .normal = {0.0f, 0.0f, -1.0f, 0.0f}},
-    {.position = {-1.0f, -1.0f, -1.0f, 1.0f}, .normal = {0.0f, 0.0f, -1.0f, 0.0f}},
-    {.position = {1.0f, -1.0f, -1.0f, 1.0f}, .normal = {0.0f, 0.0f, -1.0f, 0.0f}},
-    {.position = {1.0f, 1.0f, -1.0f, 1.0f}, .normal = {0.0f, 0.0f, -1.0f, 0.0f}},
+    {.position = {-1.0f, 1.0f, -1.0f, 1.0f}, .normal = {0.0f, 0.0f, -1.0f}},
+    {.position = {-1.0f, -1.0f, -1.0f, 1.0f}, .normal = {0.0f, 0.0f, -1.0f}},
+    {.position = {1.0f, -1.0f, -1.0f, 1.0f}, .normal = {0.0f, 0.0f, -1.0f}},
+    {.position = {1.0f, 1.0f, -1.0f, 1.0f}, .normal = {0.0f, 0.0f, -1.0f}},
   };
 
   _vertexBuffer = [self.device newBufferWithBytes:vertices

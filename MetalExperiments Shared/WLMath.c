@@ -5,12 +5,12 @@
 
 #include "WLMath.h"
 
-matrix_float4x4 matrix4x4_translation_float3(vector_float3 t)
+matrix_float4x4 wl_matrix4x4_translation_float3(vector_float3 t)
 {
-  return matrix4x4_translation(t.x, t.y, t.z);
+  return wl_matrix4x4_translation(t.x, t.y, t.z);
 }
 
-matrix_float4x4 matrix4x4_translation(float tx, float ty, float tz)
+matrix_float4x4 wl_matrix4x4_translation(float tx, float ty, float tz)
 {
     return (matrix_float4x4) {{
         { 1,   0,  0,  0 },
@@ -20,7 +20,7 @@ matrix_float4x4 matrix4x4_translation(float tx, float ty, float tz)
     }};
 }
 
-matrix_float4x4 matrix4x4_rotation(float radians, vector_float3 axis)
+matrix_float4x4 wl_matrix4x4_rotation(float radians, vector_float3 axis)
 {
     axis = vector_normalize(axis);
     float ct = cosf(radians);
@@ -36,7 +36,7 @@ matrix_float4x4 matrix4x4_rotation(float radians, vector_float3 axis)
     }};
 }
 
-matrix_float4x4 matrix_perspective_right_hand(float fovyRadians, float aspect, float nearZ, float farZ)
+matrix_float4x4 wl_matrix_perspective_right_hand(float fovyRadians, float aspect, float nearZ, float farZ)
 {
     float ys = 1 / tanf(fovyRadians * 0.5);
     float xs = ys / aspect;
@@ -50,7 +50,7 @@ matrix_float4x4 matrix_perspective_right_hand(float fovyRadians, float aspect, f
     }};
 }
 
-matrix_float3x3 matrix_float4x4_extract_linear(matrix_float4x4 m)
+matrix_float3x3 wl_matrix_float4x4_extract_linear(matrix_float4x4 m)
 {
     vector_float3 X = m.columns[0].xyz;
     vector_float3 Y = m.columns[1].xyz;

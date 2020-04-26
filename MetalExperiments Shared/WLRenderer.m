@@ -103,7 +103,7 @@ const WLRendererConfig gConfig = {
   passDesc.colorAttachments[0].texture = texture;
   passDesc.colorAttachments[0].loadAction = MTLLoadActionClear;
   passDesc.colorAttachments[0].storeAction = MTLStoreActionStore;
-  passDesc.colorAttachments[0].clearColor = MTLClearColorMake(0.5, 0.5, 0.5, 1);
+  passDesc.colorAttachments[0].clearColor = MTLClearColorMake(0.1, 0.1, 0.1, 1);
 
   passDesc.depthAttachment.texture = _depthTexture;
   passDesc.depthAttachment.clearDepth = 1.0f;
@@ -122,11 +122,12 @@ const WLRendererConfig gConfig = {
 
     // set actor position info
     matrix_float4x4 mvMatrix = matrix_multiply(_camera.viewMatrix, actor.mat);
+    matrix_float3x3 nMatrix = simd_transpose(simd_inverse(wl_matrix_float4x4_extract_linear(mvMatrix)));
 
     WLUniforms uniforms = {
-      .mvpMatrix = matrix_multiply(_camera.projMatrix, mvMatrix),
       .mvMatrix = mvMatrix,
-      .nMatrix = matrix_float4x4_extract_linear(mvMatrix)
+      .nMatrix = nMatrix,
+      .mvpMatrix = matrix_multiply(_camera.projMatrix, mvMatrix),
     };
     memcpy([_uniformBuffer contents], &uniforms, sizeof(uniforms));
 
