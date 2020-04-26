@@ -14,7 +14,7 @@ typedef struct _WLRendererConfig {
 } WLRendererConfig;
 extern const WLRendererConfig gConfig;
 
-@class WLMesh;
+@class WLActor;
 
 @interface WLRenderer : NSObject
 
@@ -23,7 +23,7 @@ extern const WLRendererConfig gConfig;
 - (void)update:(float)dt;
 - (void)renderWithTexture:(id<MTLTexture>)texture drawable:(id<MTLDrawable>)drawable;
 
-- (void)addMesh:(WLMesh *)mesh;
+- (void)addActor:(WLActor *)actor;
 
 @property (nonatomic, readonly) id<MTLDevice> device;
 @end

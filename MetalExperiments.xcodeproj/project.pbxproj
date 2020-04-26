@@ -20,6 +20,9 @@
 		79DAE0692455A494000F85EF /* WLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0682455A494000F85EF /* WLUtils.m */; };
 		79DAE06A2455A494000F85EF /* WLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0682455A494000F85EF /* WLUtils.m */; };
 		79DAE06B2455A494000F85EF /* WLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0682455A494000F85EF /* WLUtils.m */; };
+		79DAE06E2455ABE8000F85EF /* WLActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE06D2455ABE8000F85EF /* WLActor.m */; };
+		79DAE06F2455ABE8000F85EF /* WLActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE06D2455ABE8000F85EF /* WLActor.m */; };
+		79DAE0702455ABE8000F85EF /* WLActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE06D2455ABE8000F85EF /* WLActor.m */; };
 		79E436AC244E437700DAD61F /* WLRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E436AB244E437700DAD61F /* WLRenderView.m */; };
 		79F552BE244E31C300BC9E96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F552BD244E31C300BC9E96 /* AppDelegate.m */; };
 		79F552C1244E31C300BC9E96 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F552C0244E31C300BC9E96 /* GameViewController.m */; };
@@ -58,6 +61,8 @@
 		79DAE06324559DF5000F85EF /* WLCubeMesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLCubeMesh.m; sourceTree = "<group>"; };
 		79DAE0672455A494000F85EF /* WLUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLUtils.h; sourceTree = "<group>"; };
 		79DAE0682455A494000F85EF /* WLUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLUtils.m; sourceTree = "<group>"; };
+		79DAE06C2455ABE8000F85EF /* WLActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLActor.h; sourceTree = "<group>"; };
+		79DAE06D2455ABE8000F85EF /* WLActor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLActor.m; sourceTree = "<group>"; };
 		79E436AA244E437700DAD61F /* WLRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLRenderView.h; sourceTree = "<group>"; };
 		79E436AB244E437700DAD61F /* WLRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLRenderView.m; sourceTree = "<group>"; };
 		79F552B0244E31C000BC9E96 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
@@ -162,6 +167,8 @@
 				79CBED9124524DE300916540 /* WLMath.c */,
 				79DAE055245463C8000F85EF /* WLRenderer.h */,
 				79DAE056245463C8000F85EF /* WLRenderer.m */,
+				79DAE06C2455ABE8000F85EF /* WLActor.h */,
+				79DAE06D2455ABE8000F85EF /* WLActor.m */,
 				79DAE0672455A494000F85EF /* WLUtils.h */,
 				79DAE0682455A494000F85EF /* WLUtils.m */,
 			);
@@ -355,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79DAE06E2455ABE8000F85EF /* WLActor.m in Sources */,
 				79DAE0692455A494000F85EF /* WLUtils.m in Sources */,
 				79F552F2244E31C300BC9E96 /* Renderer.m in Sources */,
 				79F552C1244E31C300BC9E96 /* GameViewController.m in Sources */,
@@ -371,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79DAE06F2455ABE8000F85EF /* WLActor.m in Sources */,
 				79DAE06A2455A494000F85EF /* WLUtils.m in Sources */,
 				79F552F3244E31C300BC9E96 /* Renderer.m in Sources */,
 				79F552D6244E31C300BC9E96 /* GameViewController.m in Sources */,
@@ -387,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79DAE0702455ABE8000F85EF /* WLActor.m in Sources */,
 				79DAE06B2455A494000F85EF /* WLUtils.m in Sources */,
 				79F552F4244E31C300BC9E96 /* Renderer.m in Sources */,
 				79DAE0602454DF87000F85EF /* WLMesh.m in Sources */,
