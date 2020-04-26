@@ -11,6 +11,15 @@
 		79DAE057245463C8000F85EF /* WLRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE056245463C8000F85EF /* WLRenderer.m */; };
 		79DAE058245463C8000F85EF /* WLRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE056245463C8000F85EF /* WLRenderer.m */; };
 		79DAE059245463C8000F85EF /* WLRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE056245463C8000F85EF /* WLRenderer.m */; };
+		79DAE05E2454DF87000F85EF /* WLMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE05D2454DF87000F85EF /* WLMesh.m */; };
+		79DAE05F2454DF87000F85EF /* WLMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE05D2454DF87000F85EF /* WLMesh.m */; };
+		79DAE0602454DF87000F85EF /* WLMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE05D2454DF87000F85EF /* WLMesh.m */; };
+		79DAE06424559DF5000F85EF /* WLCubeMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE06324559DF5000F85EF /* WLCubeMesh.m */; };
+		79DAE06524559DF5000F85EF /* WLCubeMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE06324559DF5000F85EF /* WLCubeMesh.m */; };
+		79DAE06624559DF5000F85EF /* WLCubeMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE06324559DF5000F85EF /* WLCubeMesh.m */; };
+		79DAE0692455A494000F85EF /* WLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0682455A494000F85EF /* WLUtils.m */; };
+		79DAE06A2455A494000F85EF /* WLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0682455A494000F85EF /* WLUtils.m */; };
+		79DAE06B2455A494000F85EF /* WLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0682455A494000F85EF /* WLUtils.m */; };
 		79E436AC244E437700DAD61F /* WLRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E436AB244E437700DAD61F /* WLRenderView.m */; };
 		79F552BE244E31C300BC9E96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F552BD244E31C300BC9E96 /* AppDelegate.m */; };
 		79F552C1244E31C300BC9E96 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F552C0244E31C300BC9E96 /* GameViewController.m */; };
@@ -43,6 +52,12 @@
 		79DAE055245463C8000F85EF /* WLRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLRenderer.h; sourceTree = "<group>"; };
 		79DAE056245463C8000F85EF /* WLRenderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLRenderer.m; sourceTree = "<group>"; };
 		79DAE05B24546440000F85EF /* WLTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTypes.h; sourceTree = "<group>"; };
+		79DAE05C2454DF87000F85EF /* WLMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLMesh.h; sourceTree = "<group>"; };
+		79DAE05D2454DF87000F85EF /* WLMesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLMesh.m; sourceTree = "<group>"; };
+		79DAE06224559DF5000F85EF /* WLCubeMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLCubeMesh.h; sourceTree = "<group>"; };
+		79DAE06324559DF5000F85EF /* WLCubeMesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLCubeMesh.m; sourceTree = "<group>"; };
+		79DAE0672455A494000F85EF /* WLUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLUtils.h; sourceTree = "<group>"; };
+		79DAE0682455A494000F85EF /* WLUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLUtils.m; sourceTree = "<group>"; };
 		79E436AA244E437700DAD61F /* WLRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLRenderView.h; sourceTree = "<group>"; };
 		79E436AB244E437700DAD61F /* WLRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLRenderView.m; sourceTree = "<group>"; };
 		79F552B0244E31C000BC9E96 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
@@ -113,6 +128,17 @@
 			name = __trash;
 			sourceTree = "<group>";
 		};
+		79DAE06124559DDB000F85EF /* Mesh */ = {
+			isa = PBXGroup;
+			children = (
+				79DAE05C2454DF87000F85EF /* WLMesh.h */,
+				79DAE05D2454DF87000F85EF /* WLMesh.m */,
+				79DAE06224559DF5000F85EF /* WLCubeMesh.h */,
+				79DAE06324559DF5000F85EF /* WLCubeMesh.m */,
+			);
+			name = Mesh;
+			sourceTree = "<group>";
+		};
 		79F552AA244E31C000BC9E96 = {
 			isa = PBXGroup;
 			children = (
@@ -131,10 +157,13 @@
 				79F552B4244E31C300BC9E96 /* Assets.xcassets */,
 				79DAE05B24546440000F85EF /* WLTypes.h */,
 				79F552B3244E31C000BC9E96 /* Shaders.metal */,
+				79DAE06124559DDB000F85EF /* Mesh */,
 				79CBED9024524DE300916540 /* WLMath.h */,
 				79CBED9124524DE300916540 /* WLMath.c */,
 				79DAE055245463C8000F85EF /* WLRenderer.h */,
 				79DAE056245463C8000F85EF /* WLRenderer.m */,
+				79DAE0672455A494000F85EF /* WLUtils.h */,
+				79DAE0682455A494000F85EF /* WLUtils.m */,
 			);
 			path = "MetalExperiments Shared";
 			sourceTree = "<group>";
@@ -326,11 +355,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79DAE0692455A494000F85EF /* WLUtils.m in Sources */,
 				79F552F2244E31C300BC9E96 /* Renderer.m in Sources */,
 				79F552C1244E31C300BC9E96 /* GameViewController.m in Sources */,
 				79F552CA244E31C300BC9E96 /* main.m in Sources */,
+				79DAE05E2454DF87000F85EF /* WLMesh.m in Sources */,
 				79F552BE244E31C300BC9E96 /* AppDelegate.m in Sources */,
 				79F552F5244E31C300BC9E96 /* Shaders.metal in Sources */,
+				79DAE06424559DF5000F85EF /* WLCubeMesh.m in Sources */,
 				79DAE057245463C8000F85EF /* WLRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,11 +371,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79DAE06A2455A494000F85EF /* WLUtils.m in Sources */,
 				79F552F3244E31C300BC9E96 /* Renderer.m in Sources */,
 				79F552D6244E31C300BC9E96 /* GameViewController.m in Sources */,
 				79F552DF244E31C300BC9E96 /* main.m in Sources */,
+				79DAE05F2454DF87000F85EF /* WLMesh.m in Sources */,
 				79F552D3244E31C300BC9E96 /* AppDelegate.m in Sources */,
 				79F552F6244E31C300BC9E96 /* Shaders.metal in Sources */,
+				79DAE06524559DF5000F85EF /* WLCubeMesh.m in Sources */,
 				79DAE058245463C8000F85EF /* WLRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,7 +387,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79DAE06B2455A494000F85EF /* WLUtils.m in Sources */,
 				79F552F4244E31C300BC9E96 /* Renderer.m in Sources */,
+				79DAE0602454DF87000F85EF /* WLMesh.m in Sources */,
+				79DAE06624559DF5000F85EF /* WLCubeMesh.m in Sources */,
 				79DAE059245463C8000F85EF /* WLRenderer.m in Sources */,
 				79F552EB244E31C300BC9E96 /* GameViewController.m in Sources */,
 				79CBED9224524DE300916540 /* WLMath.c in Sources */,
@@ -461,6 +499,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				MTL_TREAT_WARNINGS_AS_ERRORS = YES;
 				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
@@ -511,6 +550,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				MTL_TREAT_WARNINGS_AS_ERRORS = YES;
 			};
 			name = Release;
 		};

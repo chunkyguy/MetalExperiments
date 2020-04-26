@@ -7,6 +7,8 @@
 #define WLTypes_h
 #import <simd/simd.h>
 
+// Types shared between app and shader
+
 typedef struct _WLVertex {
   vector_float4 position;
   vector_float4 color;

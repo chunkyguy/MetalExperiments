@@ -14,11 +14,16 @@ typedef struct _WLRendererConfig {
 } WLRendererConfig;
 extern const WLRendererConfig gConfig;
 
+@class WLMesh;
+
 @interface WLRenderer : NSObject
 
+- (void)setUp;
 - (void)resize:(CGSize)size;
 - (void)update:(float)dt;
 - (void)renderWithTexture:(id<MTLTexture>)texture drawable:(id<MTLDrawable>)drawable;
+
+- (void)addMesh:(WLMesh *)mesh;
 
 @property (nonatomic, readonly) id<MTLDevice> device;
 @end

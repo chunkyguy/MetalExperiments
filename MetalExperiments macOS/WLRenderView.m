@@ -29,6 +29,7 @@
   _metalLayer.pixelFormat = gConfig.pixelFormat;
   _metalLayer.drawableSize = self.frame.size;
 
+  [_renderer setUp];
   [_renderer resize:self.frame.size];
 }
 

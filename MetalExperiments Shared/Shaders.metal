@@ -20,7 +20,7 @@ struct Uniforms {
 };
 
 vertex Vertex vert_main(
-  device Vertex *vertices [[buffer(0)]],
+  const device Vertex *vertices [[buffer(0)]],
   constant Uniforms *uniforms [[buffer(1)]],
   uint vid [[vertex_id]]
 )
