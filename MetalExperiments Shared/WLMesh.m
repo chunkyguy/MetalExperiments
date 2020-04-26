@@ -13,11 +13,6 @@
 @end
 
 @implementation WLMesh
-+ (instancetype)meshWithDevice:(id<MTLDevice>)device
-{
-  return [[self alloc] initWithDevice:device];
-}
-
 - (instancetype)initWithDevice:(id<MTLDevice>)device
 {
   self = [super init];
@@ -27,15 +22,10 @@
   return self;
 }
 
-- (id<MTLBuffer>)vertexBuffer
+
+- (void)render:(id<MTLRenderCommandEncoder>)command
 {
   WLAssertionFailure(@"Not implemented");
-  return nil;
 }
 
-- (id<MTLBuffer>)indexBuffer
-{
-  WLAssertionFailure(@"Not implemented");
-  return nil;
-}
 @end

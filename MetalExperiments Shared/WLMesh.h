@@ -7,9 +7,9 @@
 #import <Metal/Metal.h>
 
 @interface WLMesh : NSObject
-+ (instancetype)meshWithDevice:(id<MTLDevice>)device;
+
 - (instancetype)initWithDevice:(id<MTLDevice>)device;
+- (void)render:(id<MTLRenderCommandEncoder>)command;
+
 @property (nonatomic, readonly) id<MTLDevice>device;
-@property (nonatomic, readonly) id<MTLBuffer> vertexBuffer;
-@property (nonatomic, readonly) id<MTLBuffer> indexBuffer;
 @end

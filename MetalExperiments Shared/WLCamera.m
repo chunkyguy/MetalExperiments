@@ -24,7 +24,7 @@
 {
   self = [super init];
   if (self) {
-    vector_float3 cam = {0, 0, -5};
+    vector_float3 cam = {0, 0, -2};
     _viewMatrix = matrix4x4_translation_float3(cam);
     
     float fov = (2 * M_PI)/5.0f;

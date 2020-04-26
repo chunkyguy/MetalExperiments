@@ -16,21 +16,35 @@
 
 @implementation WLCubeMesh
 
+- (void)render:(id<MTLRenderCommandEncoder>)command
+{
+  [command setVertexBuffer:
+   [self vertexBuffer] offset:0 atIndex:0];
+
+  [command drawIndexedPrimitives:MTLPrimitiveTypeTriangle
+                     indexCount:[[self indexBuffer] length]/sizeof(WLInt16)
+                      indexType:MTLIndexTypeUInt16
+                    indexBuffer:[self indexBuffer]
+              indexBufferOffset:0];
+
+}
+
 - (id<MTLBuffer>)vertexBuffer
 {
   if (_vertexBuffer) {
     return _vertexBuffer;
   }
-  WLVertex vertices[] = {
-    {.position = {-1.0f, 1.0f, 1.0f, 1.0f}, .color = wl_whiteColor(0.3f)},
-    {.position = {-1.0f, -1.0f, 1.0f, 1.0f}, .color = wl_whiteColor(0.9f)},
-    {.position = {1.0f, -1.0f, 1.0f, 1.0f}, .color = wl_whiteColor(0.7f)},
-    {.position = {1.0f, 1.0f, 1.0f, 1.0f}, .color = wl_whiteColor(0.2)},
 
-    {.position = {-1.0f, 1.0f, -1.0f, 1.0f}, .color = wl_whiteColor(0.2f)},
-    {.position = {-1.0f, -1.0f, -1.0f, 1.0f}, .color = wl_whiteColor(0.7f)},
-    {.position = {1.0f, -1.0f, -1.0f, 1.0f}, .color = wl_whiteColor(0.0f)},
-    {.position = {1.0f, 1.0f, -1.0f, 1.0f}, .color = wl_whiteColor(0.0f)},
+  WLVertex vertices[] = {
+    {.position = {-1.0f, 1.0f, 1.0f, 1.0f}, .normal = {0.0f, 0.0f, 1.0f, 0.0f}},
+    {.position = {-1.0f, -1.0f, 1.0f, 1.0f}, .normal = {0.0f, 0.0f, 1.0f, 0.0f}},
+    {.position = {1.0f, -1.0f, 1.0f, 1.0f}, .normal = {0.0f, 0.0f, 1.0f, 0.0f}},
+    {.position = {1.0f, 1.0f, 1.0f, 1.0f}, .normal = {0.0f, 0.0f, 1.0f, 0.0f}},
+
+    {.position = {-1.0f, 1.0f, -1.0f, 1.0f}, .normal = {0.0f, 0.0f, -1.0f, 0.0f}},
+    {.position = {-1.0f, -1.0f, -1.0f, 1.0f}, .normal = {0.0f, 0.0f, -1.0f, 0.0f}},
+    {.position = {1.0f, -1.0f, -1.0f, 1.0f}, .normal = {0.0f, 0.0f, -1.0f, 0.0f}},
+    {.position = {1.0f, 1.0f, -1.0f, 1.0f}, .normal = {0.0f, 0.0f, -1.0f, 0.0f}},
   };
 
   _vertexBuffer = [self.device newBufferWithBytes:vertices

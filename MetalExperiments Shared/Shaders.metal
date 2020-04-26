@@ -10,28 +10,35 @@
 
 using namespace metal;
 
-struct Vertex {
+struct VertexIn {
+  float4 position;
+  float4 normal;
+};
+
+struct VertexOut {
   float4 position [[position]];
-  float4 color;
+  float3 eye;
+  float3 normal;
 };
 
 struct Uniforms {
   float4x4 mvpMatrix;
+  float3x3 nMatrix;
 };
 
-vertex Vertex vert_main(
-  const device Vertex *vertices [[buffer(0)]],
+vertex VertexOut vert_main(
+  const device VertexIn *vertices [[buffer(0)]],
   constant Uniforms *uniforms [[buffer(1)]],
   uint vid [[vertex_id]]
 )
 {
-  Vertex out;
+  VertexOut out;
   out.position = uniforms->mvpMatrix * vertices[vid].position;
-  out.color = vertices[vid].color;
+  out.normal = uniforms->nMatrix * vertices[vid].normal.xyz;
   return out;
 }
 
-fragment float4 frag_main(Vertex v [[stage_in]])
+fragment float4 frag_main(VertexOut v [[stage_in]])
 {
-  return v.color;
+  return float4(1.0);
 }

@@ -11,13 +11,14 @@
 
 typedef struct _WLVertex {
   vector_float4 position;
-  vector_float4 color;
+  vector_float4 normal;
 } WLVertex;
 
 typedef uint16_t WLInt16;
 
 typedef struct _WLUniforms {
   matrix_float4x4 mvpMatrix;
+  matrix_float3x3 nMatrix;
 } WLUniforms;
 
 #endif /* WLTypes_h */

@@ -7,6 +7,7 @@
 #import "WLTypes.h"
 #import "WLMath.h"
 #import "WLCubeMesh.h"
+#import "WLResourceMesh.h"
 #import "WLActor.h"
 #import "WLCamera.h"
 
@@ -67,7 +68,9 @@ const WLRendererConfig gConfig = {
   _uniformBuffer = [_device newBufferWithLength:sizeof(WLUniforms)
                                         options:MTLResourceOptionCPUCacheModeDefault];
 
-  [self addActor:[WLActor actorWithMesh:[WLCubeMesh meshWithDevice:_device]]];
+  NSURL *path = [[NSBundle mainBundle] URLForResource:@"teapot" withExtension:@"obj"];
+  WLMesh *mesh = [[WLResourceMesh alloc] initWithDevice:_device resource:path name:@"teapot"];
+  [self addActor:[WLActor actorWithMesh:mesh]];
 }
 
 - (void)resize:(CGSize)size
@@ -109,31 +112,29 @@ const WLRendererConfig gConfig = {
 
   for (WLActor *actor in _actors) {
     id<MTLCommandBuffer> cmdBuf = [_cmdQueue commandBuffer];
-    id<MTLRenderCommandEncoder> cmdEnc = [cmdBuf renderCommandEncoderWithDescriptor:passDesc];
+    id<MTLRenderCommandEncoder> command = [cmdBuf renderCommandEncoderWithDescriptor:passDesc];
 
     // prepare command encoder
-    [cmdEnc setDepthStencilState:_depth];
-    [cmdEnc setFrontFacingWinding:MTLWindingCounterClockwise];
-    [cmdEnc setCullMode:MTLCullModeBack];
-    [cmdEnc setRenderPipelineState:_pipeline];
+    [command setDepthStencilState:_depth];
+    [command setFrontFacingWinding:MTLWindingCounterClockwise];
+    [command setCullMode:MTLCullModeBack];
+    [command setRenderPipelineState:_pipeline];
 
     // set actor position info
+    matrix_float4x4 mvMatrix = matrix_multiply(_camera.viewMatrix, actor.mat);
+
     WLUniforms uniforms = {
-      .mvpMatrix = matrix_multiply(_camera.projMatrix, matrix_multiply(_camera.viewMatrix, actor.mat))
+      .mvpMatrix = matrix_multiply(_camera.projMatrix, mvMatrix),
+      .nMatrix = matrix_float4x4_extract_linear(mvMatrix)
     };
     memcpy([_uniformBuffer contents], &uniforms, sizeof(uniforms));
-    [cmdEnc setVertexBuffer:_uniformBuffer offset:0 atIndex:1];
+
+    [command setVertexBuffer:_uniformBuffer offset:0 atIndex:1];
 
     // set actor vertex info
-    WLMesh *mesh = actor.mesh;
-    [cmdEnc setVertexBuffer:mesh.vertexBuffer offset:0 atIndex:0];
-    [cmdEnc drawIndexedPrimitives:MTLPrimitiveTypeTriangle
-                       indexCount:[mesh.indexBuffer length]/sizeof(WLInt16)
-                        indexType:MTLIndexTypeUInt16
-                      indexBuffer:mesh.indexBuffer
-                indexBufferOffset:0];
+    [actor.mesh render:command];
 
-    [cmdEnc endEncoding];
+    [command endEncoding];
 
     [cmdBuf presentDrawable:drawable];
     [cmdBuf commit];
