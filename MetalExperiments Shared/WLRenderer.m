@@ -125,6 +125,7 @@ const WLRendererConfig gConfig = {
 
     WLUniforms uniforms = {
       .mvpMatrix = matrix_multiply(_camera.projMatrix, mvMatrix),
+      .mvMatrix = mvMatrix,
       .nMatrix = matrix_float4x4_extract_linear(mvMatrix)
     };
     memcpy([_uniformBuffer contents], &uniforms, sizeof(uniforms));
