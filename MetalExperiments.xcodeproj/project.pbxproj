@@ -23,6 +23,9 @@
 		79DAE06E2455ABE8000F85EF /* WLActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE06D2455ABE8000F85EF /* WLActor.m */; };
 		79DAE06F2455ABE8000F85EF /* WLActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE06D2455ABE8000F85EF /* WLActor.m */; };
 		79DAE0702455ABE8000F85EF /* WLActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE06D2455ABE8000F85EF /* WLActor.m */; };
+		79DAE0732455B0EC000F85EF /* WLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0722455B0EC000F85EF /* WLCamera.m */; };
+		79DAE0742455B0EC000F85EF /* WLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0722455B0EC000F85EF /* WLCamera.m */; };
+		79DAE0752455B0EC000F85EF /* WLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0722455B0EC000F85EF /* WLCamera.m */; };
 		79E436AC244E437700DAD61F /* WLRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E436AB244E437700DAD61F /* WLRenderView.m */; };
 		79F552BE244E31C300BC9E96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F552BD244E31C300BC9E96 /* AppDelegate.m */; };
 		79F552C1244E31C300BC9E96 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F552C0244E31C300BC9E96 /* GameViewController.m */; };
@@ -63,6 +66,8 @@
 		79DAE0682455A494000F85EF /* WLUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLUtils.m; sourceTree = "<group>"; };
 		79DAE06C2455ABE8000F85EF /* WLActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLActor.h; sourceTree = "<group>"; };
 		79DAE06D2455ABE8000F85EF /* WLActor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLActor.m; sourceTree = "<group>"; };
+		79DAE0712455B0EC000F85EF /* WLCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLCamera.h; sourceTree = "<group>"; };
+		79DAE0722455B0EC000F85EF /* WLCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLCamera.m; sourceTree = "<group>"; };
 		79E436AA244E437700DAD61F /* WLRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLRenderView.h; sourceTree = "<group>"; };
 		79E436AB244E437700DAD61F /* WLRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLRenderView.m; sourceTree = "<group>"; };
 		79F552B0244E31C000BC9E96 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
@@ -169,6 +174,8 @@
 				79DAE056245463C8000F85EF /* WLRenderer.m */,
 				79DAE06C2455ABE8000F85EF /* WLActor.h */,
 				79DAE06D2455ABE8000F85EF /* WLActor.m */,
+				79DAE0712455B0EC000F85EF /* WLCamera.h */,
+				79DAE0722455B0EC000F85EF /* WLCamera.m */,
 				79DAE0672455A494000F85EF /* WLUtils.h */,
 				79DAE0682455A494000F85EF /* WLUtils.m */,
 			);
@@ -367,6 +374,7 @@
 				79F552F2244E31C300BC9E96 /* Renderer.m in Sources */,
 				79F552C1244E31C300BC9E96 /* GameViewController.m in Sources */,
 				79F552CA244E31C300BC9E96 /* main.m in Sources */,
+				79DAE0732455B0EC000F85EF /* WLCamera.m in Sources */,
 				79DAE05E2454DF87000F85EF /* WLMesh.m in Sources */,
 				79F552BE244E31C300BC9E96 /* AppDelegate.m in Sources */,
 				79F552F5244E31C300BC9E96 /* Shaders.metal in Sources */,
@@ -384,6 +392,7 @@
 				79F552F3244E31C300BC9E96 /* Renderer.m in Sources */,
 				79F552D6244E31C300BC9E96 /* GameViewController.m in Sources */,
 				79F552DF244E31C300BC9E96 /* main.m in Sources */,
+				79DAE0742455B0EC000F85EF /* WLCamera.m in Sources */,
 				79DAE05F2454DF87000F85EF /* WLMesh.m in Sources */,
 				79F552D3244E31C300BC9E96 /* AppDelegate.m in Sources */,
 				79F552F6244E31C300BC9E96 /* Shaders.metal in Sources */,
@@ -405,6 +414,7 @@
 				79F552EB244E31C300BC9E96 /* GameViewController.m in Sources */,
 				79CBED9224524DE300916540 /* WLMath.c in Sources */,
 				79F552F1244E31C300BC9E96 /* main.m in Sources */,
+				79DAE0752455B0EC000F85EF /* WLCamera.m in Sources */,
 				79F552E8244E31C300BC9E96 /* AppDelegate.m in Sources */,
 				79F552F7244E31C300BC9E96 /* Shaders.metal in Sources */,
 				79E436AC244E437700DAD61F /* WLRenderView.m in Sources */,

@@ -8,6 +8,7 @@
 #import "WLMath.h"
 #import "WLCubeMesh.h"
 #import "WLActor.h"
+#import "WLCamera.h"
 
 const WLRendererConfig gConfig = {
   .pixelFormat = MTLPixelFormatBGRA8Unorm,
@@ -24,6 +25,7 @@ const WLRendererConfig gConfig = {
   id<MTLTexture> _depthTexture;
   id<MTLBuffer> _uniformBuffer;
   NSMutableArray *_actors;
+  WLCamera *_camera;
 }
 @end
 
@@ -34,6 +36,7 @@ const WLRendererConfig gConfig = {
   self = [super init];
   if (self) {
     _actors = [NSMutableArray array];
+    _camera = [WLCamera camera];
     _device = MTLCreateSystemDefaultDevice();
   }
   return self;
@@ -104,15 +107,6 @@ const WLRendererConfig gConfig = {
   passDesc.depthAttachment.loadAction = MTLLoadActionClear;
   passDesc.depthAttachment.storeAction = MTLStoreActionDontCare;
 
-  vector_float3 cam = {0, 0, -5};
-  matrix_float4x4 viewMatrix = matrix4x4_translation_float3(cam);
-
-  float fov = (2 * M_PI)/5.0f;
-  float aspect = 1.0f;
-  matrix_float4x4 projMatrix = matrix_perspective_right_hand(fov, aspect, 1.0f, 100.0f);
-
-  WLUniforms uniforms;
-
   for (WLActor *actor in _actors) {
     id<MTLCommandBuffer> cmdBuf = [_cmdQueue commandBuffer];
     id<MTLRenderCommandEncoder> cmdEnc = [cmdBuf renderCommandEncoderWithDescriptor:passDesc];
@@ -124,7 +118,9 @@ const WLRendererConfig gConfig = {
     [cmdEnc setRenderPipelineState:_pipeline];
 
     // set actor position info
-    uniforms.mvpMatrix = matrix_multiply(projMatrix, matrix_multiply(viewMatrix, actor.mat));
+    WLUniforms uniforms = {
+      .mvpMatrix = matrix_multiply(_camera.projMatrix, matrix_multiply(_camera.viewMatrix, actor.mat))
+    };
     memcpy([_uniformBuffer contents], &uniforms, sizeof(uniforms));
     [cmdEnc setVertexBuffer:_uniformBuffer offset:0 atIndex:1];
 
