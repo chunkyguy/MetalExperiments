@@ -18,29 +18,14 @@ struct Light {
 
 constant Light gLight[] = {
   {
-    .position = { 2.0f, 1.2f, 1.0f, 1.0f },
-    .La = { 0.0f, 0.2f, 0.2f },
-    .Ld = { 0.0f,0.8f,0.8f }
+    .position = { 5.0, 5.0, 2.0, 1.0f },
+    .La = { 0.1, 0.1, 0.1 },
+    .Ld = { 1.0, 1.0, 1.0 },
   },
   {
-    .position = { 0.6f, 1.2f, 2.9f, 1.0f },
-    .La = { 0.0f, 0.0f, 0.2f },
-    .Ld = { 0.0f,0.0f,0.8f }
-  },
-  {
-    .position = { -1.6f, 1.2f, 2.2f, 1.0f },
-    .La = { 0.2f, 0.0f, 0.0f },
-    .Ld = { 0.8f,0.0f,0.0f }
-  },
-  {
-    .position = { -1.6f, 1.2f, -0.2f, 1.0f },
-    .La = { 0.0f, 0.2f, 0.0f },
-    .Ld = { 0.0f,0.8f,0.0f }
-  },
-  {
-    .position = { 0.6f, 1.2f, -0.9f, 1.0f },
-    .La = { 0.2f, 0.2f, 0.2f },
-    .Ld = { 0.8f,0.8f,0.8f }
+    .position = { 5.0, 5.0, 2.0, 0.0f },
+    .La = { 0.0, 0.0, 0.0 },
+    .Ld = { 1.0, 1.0, 1.0 },
   }
 };
 
@@ -98,12 +83,16 @@ float4 phong(const float4 wPos, const float3 wNormal, const int lightIndex)
 {
   // ambient light
   float3 ambient = gLight[lightIndex].La * gMaterial.Ka;
-
+  
   // diffuse light
-  float3 wLightDir = normalize(float3(gLight[lightIndex].position - wPos)); // surface -> light
+  float4 lightPos = gLight[lightIndex].position;
+  float3 wLightDir = normalize(float3(lightPos)); // directional light
+  if (lightPos.w != 0) {
+    wLightDir = normalize(float3(lightPos - wPos)); // surface -> light
+  }
   float diffuseFactor = max(0.0, dot(wLightDir, wNormal));
   float3 diffuse = gLight[lightIndex].Ld * gMaterial.Kd * diffuseFactor;
-
+  
   // specular light
   float3 wEye = normalize(-wPos.xyz); // surface -> eye
   float3 wReflect = reflect(-wLightDir, wNormal); // reflection vector
@@ -111,7 +100,7 @@ float4 phong(const float4 wPos, const float3 wNormal, const int lightIndex)
   if (diffuseFactor > 0.0) {
     spec = gLight[lightIndex].Ld * gMaterial.Ks * pow(max(0.0, dot(wReflect, wEye)), gMaterial.shine);
   }
-
+  
   return float4(ambient + diffuse + spec, 1.0);
 }
 
