@@ -45,18 +45,34 @@ struct VertexIn {
 
 struct VertexOut {
   float4 position [[position]];
-  float3 color;
+  float4 color [[flat]] ;
 };
 
+float4 phong(const float4 wPos, const float3 wNormal);
+
 vertex VertexOut vert_main(const device VertexIn *vertices [[buffer(0)]], constant Uniforms *uniforms [[buffer(1)]], uint vid [[vertex_id]])
+{
+  float4 wPos = uniforms->mvMatrix * vertices[vid].position;
+  float3 wNormal = normalize(uniforms->nMatrix * vertices[vid].normal);
+  VertexOut out {
+    .position = uniforms->mvpMatrix * vertices[vid].position,
+    .color = phong(wPos, wNormal)
+  };
+  return out;
+}
+
+fragment float4 frag_main(VertexOut v [[stage_in]])
+{
+  return v.color;
+}
+
+float4 phong(const float4 wPos, const float3 wNormal)
 {
   // ambient light
   float3 ambient = gLight.La * gMaterial.Ka;
 
   // diffuse light
-  float4 wPos = uniforms->mvMatrix * vertices[vid].position; // surface position in world space
   float3 wLightDir = normalize(float3(gLight.position - wPos)); // surface -> light
-  float3 wNormal = normalize(uniforms->nMatrix * vertices[vid].normal); // normal in world space
   float diffuseFactor = max(0.0, dot(wLightDir, wNormal));
   float3 diffuse = gLight.Ld * gMaterial.Kd * diffuseFactor;
 
@@ -67,15 +83,7 @@ vertex VertexOut vert_main(const device VertexIn *vertices [[buffer(0)]], consta
   if (diffuseFactor > 0.0) {
     spec = gLight.Ls * gMaterial.Ks * pow(max(0.0, dot(wReflect, wEye)), gMaterial.shine);
   }
-  
-  VertexOut out {
-    .position = uniforms->mvpMatrix * vertices[vid].position,
-    .color = ambient + diffuse + spec
-  };
-  return out;
+
+  return float4(ambient + diffuse + spec, 1.0);
 }
 
-fragment float4 frag_main(VertexOut v [[stage_in]])
-{
-  return float4(v.color, 1.0);
-}
