@@ -5,35 +5,42 @@
 
 #import "GameViewController.h"
 #import "Renderer.h"
+#import "WLRenderView.h"
+
+@interface GameViewController ()
+{
+  WLRenderView *_view;
+  CADisplayLink *_displayLink;
+}
+@end
 
 @implementation GameViewController
-{
-    MTKView *_view;
-
-    Renderer *_renderer;
-}
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 
-    _view = (MTKView *)self.view;
+  _view = (WLRenderView *)self.view;
+  [_view setUp];
 
-    _view.device = MTLCreateSystemDefaultDevice();
-    _view.backgroundColor = UIColor.blackColor;
+  _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(tick)];
+}
 
-    if(!_view.device)
-    {
-        NSLog(@"Metal is not supported on this device");
-        self.view = [[UIView alloc] initWithFrame:self.view.frame];
-        return;
-    }
+- (void)viewDidAppear:(BOOL)animated
+{
+  [super viewDidAppear:animated];
+[_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+}
 
-    _renderer = [[Renderer alloc] initWithMetalKitView:_view];
+- (void)viewDidDisappear:(BOOL)animated
+{
+  [super viewDidDisappear:animated];
+  [_displayLink invalidate];
+}
 
-    [_renderer mtkView:_view drawableSizeWillChange:_view.bounds.size];
-
-    _view.delegate = _renderer;
+- (void)tick
+{
+  [_view redrawWithDeltaTime:_displayLink.duration];
 }
 
 @end

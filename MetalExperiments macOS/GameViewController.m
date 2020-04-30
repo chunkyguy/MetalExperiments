@@ -26,12 +26,14 @@ static CVReturn callback(CVDisplayLinkRef CV_NONNULL displayLink,
   return kCVReturnSuccess;
 }
 
-
-@implementation GameViewController
+@interface GameViewController ()
 {
   WLRenderView *_view;
   CVDisplayLinkRef _displayLink;
 }
+@end
+
+@implementation GameViewController
 
 - (void)viewDidLoad
 {
