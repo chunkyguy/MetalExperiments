@@ -20,6 +20,16 @@ matrix_float4x4 wl_matrix4x4_translation(float tx, float ty, float tz)
     }};
 }
 
+matrix_float4x4 wl_matrix4x4_scale(float sx, float sy, float sz)
+{
+    return (matrix_float4x4) {{
+        { sx,  0,  0,  0 },
+        { 0,  sy,  0,  0 },
+        { 0,   0, sz,  0 },
+        { 0,   0,  0,  1 }
+    }};
+}
+
 matrix_float4x4 wl_matrix4x4_rotation(float radians, vector_float3 axis)
 {
     axis = vector_normalize(axis);

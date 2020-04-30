@@ -26,48 +26,29 @@
   if (self) {
     MBEOBJModel *model = [[MBEOBJModel alloc] initWithContentsOfURL:resource generateNormals:YES];
     _model = [model groupForName:name];
-
+    [self loadBuffers];
   }
   return self;
 }
 
 - (void)render:(id<MTLRenderCommandEncoder>)command
 {
-  [command setVertexBuffer:
-   [self vertexBuffer] offset:0 atIndex:0];
-
+  [command setVertexBuffer:_vertexBuffer offset:0 atIndex:0];
   [command drawIndexedPrimitives:MTLPrimitiveTypeTriangle
-                     indexCount:[[self indexBuffer] length]/sizeof(WLInt16)
+                     indexCount:[_indexBuffer length]/sizeof(WLInt16)
                       indexType:MTLIndexTypeUInt16
-                    indexBuffer:[self indexBuffer]
+                    indexBuffer:_indexBuffer
               indexBufferOffset:0];
-
 }
 
-- (id<MTLBuffer>)vertexBuffer
+- (void)loadBuffers
 {
-  if (_vertexBuffer) {
-    return _vertexBuffer;
-  }
-
   _vertexBuffer = [self.device newBufferWithBytes:[_model.vertexData bytes]
                                       length:[_model.vertexData length]
                                      options:MTLResourceOptionCPUCacheModeDefault];
-  [_vertexBuffer setLabel:[NSString stringWithFormat:@"Vertices (%@)", _model.name]];
-
-  return _vertexBuffer;
-}
-
-- (id<MTLBuffer>)indexBuffer
-{
-    if (_indexBuffer) {
-    return _indexBuffer;
-  }
 
   _indexBuffer = [self.device newBufferWithBytes:[_model.indexData bytes]
                                      length:[_model.indexData length]
                                     options:MTLResourceOptionCPUCacheModeDefault];
-  [_indexBuffer setLabel:[NSString stringWithFormat:@"Indices (%@)", _model.name]];
-  return _indexBuffer;
 }
 @end

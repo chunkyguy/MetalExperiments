@@ -33,7 +33,9 @@
 {
   _metalLayer = (CAMetalLayer *)self.layer;
 }
+
 #elif TARGET_OS_OSX
+
 - (void)setUpLayer
 {
   [self setWantsLayer:YES];
@@ -41,6 +43,7 @@
   [_metalLayer setFrame:self.frame];
   [self setLayer:_metalLayer];
 }
+
 #endif
 
 - (void)setUp

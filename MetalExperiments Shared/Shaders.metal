@@ -59,7 +59,11 @@ struct VertexOut {
 
 float4 phong(const float4 wPos, const float3 wNormal, const int lightIndex);
 
-vertex VertexOut vert_main(const device VertexIn *vertices [[buffer(0)]], constant Uniforms *uniforms [[buffer(1)]], uint vid [[vertex_id]])
+vertex VertexOut vert_main(
+  const device VertexIn *vertices [[buffer(0)]],
+  constant Uniforms *uniforms [[buffer(1)]],
+  uint vid [[vertex_id]]
+)
 {
   float4 wPos = uniforms->mvMatrix * vertices[vid].position;
   float3 wNormal = normalize(uniforms->nMatrix * vertices[vid].normal);

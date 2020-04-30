@@ -32,12 +32,27 @@
 		79DAE07C2455C50E000F85EF /* WLResourceMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE07B2455C50E000F85EF /* WLResourceMesh.m */; };
 		79DAE07D2455C50E000F85EF /* WLResourceMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE07B2455C50E000F85EF /* WLResourceMesh.m */; };
 		79DAE07E2455C50E000F85EF /* WLResourceMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE07B2455C50E000F85EF /* WLResourceMesh.m */; };
-		79DAE08B2455E1A4000F85EF /* MBEOBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0892455E1A4000F85EF /* MBEOBJModel.mm */; };
-		79DAE08C2455E1A4000F85EF /* MBEOBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0892455E1A4000F85EF /* MBEOBJModel.mm */; };
-		79DAE08D2455E1A4000F85EF /* MBEOBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0892455E1A4000F85EF /* MBEOBJModel.mm */; };
-		79DAE0902455E1CE000F85EF /* MBEOBJGroup.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE08F2455E1CE000F85EF /* MBEOBJGroup.mm */; };
-		79DAE0912455E1CE000F85EF /* MBEOBJGroup.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE08F2455E1CE000F85EF /* MBEOBJGroup.mm */; };
-		79DAE0922455E1CE000F85EF /* MBEOBJGroup.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE08F2455E1CE000F85EF /* MBEOBJGroup.mm */; };
+		79DAE095245768A6000F85EF /* WLScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE094245768A6000F85EF /* WLScene.m */; };
+		79DAE096245768A6000F85EF /* WLScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE094245768A6000F85EF /* WLScene.m */; };
+		79DAE097245768A6000F85EF /* WLScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE094245768A6000F85EF /* WLScene.m */; };
+		79DAE09E24576CE8000F85EF /* WLMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 79CBED9124524DE300916540 /* WLMath.c */; };
+		79DAE09F24576CE8000F85EF /* WLMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 79CBED9124524DE300916540 /* WLMath.c */; };
+		79DAE0A624576DAB000F85EF /* WLTeapot.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0A524576DAB000F85EF /* WLTeapot.m */; };
+		79DAE0A724576DAB000F85EF /* WLTeapot.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0A524576DAB000F85EF /* WLTeapot.m */; };
+		79DAE0A824576DAB000F85EF /* WLTeapot.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0A524576DAB000F85EF /* WLTeapot.m */; };
+		79DAE0A924576F00000F85EF /* MBEOBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE09B24576C79000F85EF /* MBEOBJModel.mm */; };
+		79DAE0AA24576F01000F85EF /* MBEOBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE09B24576C79000F85EF /* MBEOBJModel.mm */; };
+		79DAE0AB24576F02000F85EF /* MBEOBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE09B24576C79000F85EF /* MBEOBJModel.mm */; };
+		79DAE0AC24576F05000F85EF /* MBEOBJGroup.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE09D24576C79000F85EF /* MBEOBJGroup.mm */; };
+		79DAE0AD24576F05000F85EF /* MBEOBJGroup.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE09D24576C79000F85EF /* MBEOBJGroup.mm */; };
+		79DAE0AE24576F06000F85EF /* MBEOBJGroup.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE09D24576C79000F85EF /* MBEOBJGroup.mm */; };
+		79DAE0B52458BE9F000F85EF /* WLPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0B42458BE9F000F85EF /* WLPlane.m */; };
+		79DAE0B82458C04C000F85EF /* WLPlaneMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0B72458C04C000F85EF /* WLPlaneMesh.m */; };
+		79DAE0B92458C379000F85EF /* WLPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0B42458BE9F000F85EF /* WLPlane.m */; };
+		79DAE0BA2458C379000F85EF /* WLPlane.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0B42458BE9F000F85EF /* WLPlane.m */; };
+		79DAE0BB2458C392000F85EF /* WLPlaneMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0B72458C04C000F85EF /* WLPlaneMesh.m */; };
+		79DAE0BC2458C392000F85EF /* WLPlaneMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0B72458C04C000F85EF /* WLPlaneMesh.m */; };
+		79DAE0C7245AD351000F85EF /* WLRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E436AB244E437700DAD61F /* WLRenderView.m */; };
 		79E436AC244E437700DAD61F /* WLRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E436AB244E437700DAD61F /* WLRenderView.m */; };
 		79F552BE244E31C300BC9E96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F552BD244E31C300BC9E96 /* AppDelegate.m */; };
 		79F552C1244E31C300BC9E96 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F552C0244E31C300BC9E96 /* GameViewController.m */; };
@@ -83,10 +98,18 @@
 		79DAE0762455B7DF000F85EF /* teapot.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teapot.obj; sourceTree = "<group>"; };
 		79DAE07A2455C50E000F85EF /* WLResourceMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLResourceMesh.h; sourceTree = "<group>"; };
 		79DAE07B2455C50E000F85EF /* WLResourceMesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLResourceMesh.m; sourceTree = "<group>"; };
-		79DAE0892455E1A4000F85EF /* MBEOBJModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MBEOBJModel.mm; path = ../../Playground/PlaygroundObjC/PlaygroundObjC/MBEOBJModel.mm; sourceTree = "<group>"; };
-		79DAE08A2455E1A4000F85EF /* MBEOBJModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBEOBJModel.h; path = ../../Playground/PlaygroundObjC/PlaygroundObjC/MBEOBJModel.h; sourceTree = "<group>"; };
-		79DAE08E2455E1CE000F85EF /* MBEOBJGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBEOBJGroup.h; path = ../../Playground/PlaygroundObjC/PlaygroundObjC/MBEOBJGroup.h; sourceTree = "<group>"; };
-		79DAE08F2455E1CE000F85EF /* MBEOBJGroup.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MBEOBJGroup.mm; path = ../../Playground/PlaygroundObjC/PlaygroundObjC/MBEOBJGroup.mm; sourceTree = "<group>"; };
+		79DAE093245768A6000F85EF /* WLScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLScene.h; sourceTree = "<group>"; };
+		79DAE094245768A6000F85EF /* WLScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLScene.m; sourceTree = "<group>"; };
+		79DAE09A24576C79000F85EF /* MBEOBJGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBEOBJGroup.h; sourceTree = "<group>"; };
+		79DAE09B24576C79000F85EF /* MBEOBJModel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MBEOBJModel.mm; sourceTree = "<group>"; };
+		79DAE09C24576C79000F85EF /* MBEOBJModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBEOBJModel.h; sourceTree = "<group>"; };
+		79DAE09D24576C79000F85EF /* MBEOBJGroup.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MBEOBJGroup.mm; sourceTree = "<group>"; };
+		79DAE0A424576DAB000F85EF /* WLTeapot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTeapot.h; sourceTree = "<group>"; };
+		79DAE0A524576DAB000F85EF /* WLTeapot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTeapot.m; sourceTree = "<group>"; };
+		79DAE0B32458BE9F000F85EF /* WLPlane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPlane.h; sourceTree = "<group>"; };
+		79DAE0B42458BE9F000F85EF /* WLPlane.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPlane.m; sourceTree = "<group>"; };
+		79DAE0B62458C04C000F85EF /* WLPlaneMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPlaneMesh.h; sourceTree = "<group>"; };
+		79DAE0B72458C04C000F85EF /* WLPlaneMesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPlaneMesh.m; sourceTree = "<group>"; };
 		79E436AA244E437700DAD61F /* WLRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLRenderView.h; sourceTree = "<group>"; };
 		79E436AB244E437700DAD61F /* WLRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLRenderView.m; sourceTree = "<group>"; };
 		79F552B0244E31C000BC9E96 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
@@ -166,9 +189,73 @@
 				79DAE07B2455C50E000F85EF /* WLResourceMesh.m */,
 				79DAE06224559DF5000F85EF /* WLCubeMesh.h */,
 				79DAE06324559DF5000F85EF /* WLCubeMesh.m */,
-				79DAE0762455B7DF000F85EF /* teapot.obj */,
+				79DAE0B62458C04C000F85EF /* WLPlaneMesh.h */,
+				79DAE0B72458C04C000F85EF /* WLPlaneMesh.m */,
 			);
 			name = Mesh;
+			sourceTree = "<group>";
+		};
+		79DAE09924576C79000F85EF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				79CBED9024524DE300916540 /* WLMath.h */,
+				79CBED9124524DE300916540 /* WLMath.c */,
+				79DAE0672455A494000F85EF /* WLUtils.h */,
+				79DAE0682455A494000F85EF /* WLUtils.m */,
+				79DAE09C24576C79000F85EF /* MBEOBJModel.h */,
+				79DAE09B24576C79000F85EF /* MBEOBJModel.mm */,
+				79DAE09A24576C79000F85EF /* MBEOBJGroup.h */,
+				79DAE09D24576C79000F85EF /* MBEOBJGroup.mm */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		79DAE0A024576CF2000F85EF /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				79DAE05B24546440000F85EF /* WLTypes.h */,
+				79F552B3244E31C000BC9E96 /* Shaders.metal */,
+				79DAE055245463C8000F85EF /* WLRenderer.h */,
+				79DAE056245463C8000F85EF /* WLRenderer.m */,
+				79E436AA244E437700DAD61F /* WLRenderView.h */,
+				79E436AB244E437700DAD61F /* WLRenderView.m */,
+			);
+			name = Renderer;
+			sourceTree = "<group>";
+		};
+		79DAE0A124576D0C000F85EF /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				79DAE0A224576D3F000F85EF /* Resourses */,
+				79DAE093245768A6000F85EF /* WLScene.h */,
+				79DAE094245768A6000F85EF /* WLScene.m */,
+				79DAE0712455B0EC000F85EF /* WLCamera.h */,
+				79DAE0722455B0EC000F85EF /* WLCamera.m */,
+				79DAE0A324576D91000F85EF /* Actors */,
+				79DAE06124559DDB000F85EF /* Mesh */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		79DAE0A224576D3F000F85EF /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				79DAE0762455B7DF000F85EF /* teapot.obj */,
+			);
+			name = Resourses;
+			sourceTree = "<group>";
+		};
+		79DAE0A324576D91000F85EF /* Actors */ = {
+			isa = PBXGroup;
+			children = (
+				79DAE06C2455ABE8000F85EF /* WLActor.h */,
+				79DAE06D2455ABE8000F85EF /* WLActor.m */,
+				79DAE0A424576DAB000F85EF /* WLTeapot.h */,
+				79DAE0A524576DAB000F85EF /* WLTeapot.m */,
+				79DAE0B32458BE9F000F85EF /* WLPlane.h */,
+				79DAE0B42458BE9F000F85EF /* WLPlane.m */,
+			);
+			name = Actors;
 			sourceTree = "<group>";
 		};
 		79F552AA244E31C000BC9E96 = {
@@ -187,23 +274,9 @@
 			children = (
 				79DAE05A24546408000F85EF /* __trash */,
 				79F552B4244E31C300BC9E96 /* Assets.xcassets */,
-				79DAE05B24546440000F85EF /* WLTypes.h */,
-				79F552B3244E31C000BC9E96 /* Shaders.metal */,
-				79DAE06124559DDB000F85EF /* Mesh */,
-				79CBED9024524DE300916540 /* WLMath.h */,
-				79CBED9124524DE300916540 /* WLMath.c */,
-				79DAE055245463C8000F85EF /* WLRenderer.h */,
-				79DAE056245463C8000F85EF /* WLRenderer.m */,
-				79DAE06C2455ABE8000F85EF /* WLActor.h */,
-				79DAE06D2455ABE8000F85EF /* WLActor.m */,
-				79DAE0712455B0EC000F85EF /* WLCamera.h */,
-				79DAE0722455B0EC000F85EF /* WLCamera.m */,
-				79DAE0672455A494000F85EF /* WLUtils.h */,
-				79DAE0682455A494000F85EF /* WLUtils.m */,
-				79DAE08A2455E1A4000F85EF /* MBEOBJModel.h */,
-				79DAE0892455E1A4000F85EF /* MBEOBJModel.mm */,
-				79DAE08E2455E1CE000F85EF /* MBEOBJGroup.h */,
-				79DAE08F2455E1CE000F85EF /* MBEOBJGroup.mm */,
+				79DAE0A024576CF2000F85EF /* Renderer */,
+				79DAE0A124576D0C000F85EF /* Scene */,
+				79DAE09924576C79000F85EF /* Utils */,
 			);
 			path = "MetalExperiments Shared";
 			sourceTree = "<group>";
@@ -258,8 +331,6 @@
 				79F552EC244E31C300BC9E96 /* Main.storyboard */,
 				79F552EF244E31C300BC9E96 /* Info.plist */,
 				79F552F0244E31C300BC9E96 /* main.m */,
-				79E436AA244E437700DAD61F /* WLRenderView.h */,
-				79E436AB244E437700DAD61F /* WLRenderView.m */,
 			);
 			path = "MetalExperiments macOS";
 			sourceTree = "<group>";
@@ -398,16 +469,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79DAE095245768A6000F85EF /* WLScene.m in Sources */,
 				79DAE06E2455ABE8000F85EF /* WLActor.m in Sources */,
+				79DAE0A624576DAB000F85EF /* WLTeapot.m in Sources */,
+				79DAE09E24576CE8000F85EF /* WLMath.c in Sources */,
 				79DAE0692455A494000F85EF /* WLUtils.m in Sources */,
 				79F552F2244E31C300BC9E96 /* Renderer.m in Sources */,
+				79DAE0A924576F00000F85EF /* MBEOBJModel.mm in Sources */,
 				79F552C1244E31C300BC9E96 /* GameViewController.m in Sources */,
 				79F552CA244E31C300BC9E96 /* main.m in Sources */,
+				79DAE0B52458BE9F000F85EF /* WLPlane.m in Sources */,
 				79DAE0732455B0EC000F85EF /* WLCamera.m in Sources */,
+				79DAE0AC24576F05000F85EF /* MBEOBJGroup.mm in Sources */,
+				79DAE0B82458C04C000F85EF /* WLPlaneMesh.m in Sources */,
 				79DAE05E2454DF87000F85EF /* WLMesh.m in Sources */,
 				79F552BE244E31C300BC9E96 /* AppDelegate.m in Sources */,
-				79DAE0902455E1CE000F85EF /* MBEOBJGroup.mm in Sources */,
-				79DAE08B2455E1A4000F85EF /* MBEOBJModel.mm in Sources */,
+				79DAE0C7245AD351000F85EF /* WLRenderView.m in Sources */,
 				79F552F5244E31C300BC9E96 /* Shaders.metal in Sources */,
 				79DAE06424559DF5000F85EF /* WLCubeMesh.m in Sources */,
 				79DAE057245463C8000F85EF /* WLRenderer.m in Sources */,
@@ -419,16 +496,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79DAE096245768A6000F85EF /* WLScene.m in Sources */,
 				79DAE06F2455ABE8000F85EF /* WLActor.m in Sources */,
+				79DAE0A724576DAB000F85EF /* WLTeapot.m in Sources */,
+				79DAE09F24576CE8000F85EF /* WLMath.c in Sources */,
 				79DAE06A2455A494000F85EF /* WLUtils.m in Sources */,
 				79F552F3244E31C300BC9E96 /* Renderer.m in Sources */,
+				79DAE0AA24576F01000F85EF /* MBEOBJModel.mm in Sources */,
 				79F552D6244E31C300BC9E96 /* GameViewController.m in Sources */,
 				79F552DF244E31C300BC9E96 /* main.m in Sources */,
+				79DAE0B92458C379000F85EF /* WLPlane.m in Sources */,
 				79DAE0742455B0EC000F85EF /* WLCamera.m in Sources */,
+				79DAE0AD24576F05000F85EF /* MBEOBJGroup.mm in Sources */,
+				79DAE0BB2458C392000F85EF /* WLPlaneMesh.m in Sources */,
 				79DAE05F2454DF87000F85EF /* WLMesh.m in Sources */,
 				79F552D3244E31C300BC9E96 /* AppDelegate.m in Sources */,
-				79DAE0912455E1CE000F85EF /* MBEOBJGroup.mm in Sources */,
-				79DAE08C2455E1A4000F85EF /* MBEOBJModel.mm in Sources */,
 				79F552F6244E31C300BC9E96 /* Shaders.metal in Sources */,
 				79DAE06524559DF5000F85EF /* WLCubeMesh.m in Sources */,
 				79DAE058245463C8000F85EF /* WLRenderer.m in Sources */,
@@ -442,19 +524,23 @@
 			files = (
 				79DAE0702455ABE8000F85EF /* WLActor.m in Sources */,
 				79DAE06B2455A494000F85EF /* WLUtils.m in Sources */,
-				79DAE0922455E1CE000F85EF /* MBEOBJGroup.mm in Sources */,
+				79DAE0BA2458C379000F85EF /* WLPlane.m in Sources */,
 				79F552F4244E31C300BC9E96 /* Renderer.m in Sources */,
 				79DAE0602454DF87000F85EF /* WLMesh.m in Sources */,
 				79DAE06624559DF5000F85EF /* WLCubeMesh.m in Sources */,
+				79DAE0A824576DAB000F85EF /* WLTeapot.m in Sources */,
 				79DAE059245463C8000F85EF /* WLRenderer.m in Sources */,
+				79DAE0BC2458C392000F85EF /* WLPlaneMesh.m in Sources */,
 				79F552EB244E31C300BC9E96 /* GameViewController.m in Sources */,
 				79CBED9224524DE300916540 /* WLMath.c in Sources */,
 				79F552F1244E31C300BC9E96 /* main.m in Sources */,
-				79DAE08D2455E1A4000F85EF /* MBEOBJModel.mm in Sources */,
 				79DAE07E2455C50E000F85EF /* WLResourceMesh.m in Sources */,
+				79DAE097245768A6000F85EF /* WLScene.m in Sources */,
 				79DAE0752455B0EC000F85EF /* WLCamera.m in Sources */,
 				79F552E8244E31C300BC9E96 /* AppDelegate.m in Sources */,
+				79DAE0AE24576F06000F85EF /* MBEOBJGroup.mm in Sources */,
 				79F552F7244E31C300BC9E96 /* Shaders.metal in Sources */,
+				79DAE0AB24576F02000F85EF /* MBEOBJModel.mm in Sources */,
 				79E436AC244E437700DAD61F /* WLRenderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

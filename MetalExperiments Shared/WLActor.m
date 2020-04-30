@@ -4,52 +4,57 @@
 // 
 
 #import "WLActor.h"
-#import "WLMesh.h"
+#import "WLUtils.h"
+#import "WLTypes.h"
 #import "WLMath.h"
 
 @interface WLActor ()
 {
-  WLMesh *_mesh;
-  matrix_float4x4 _mat;
-  float _rotFactor;
+  id<MTLBuffer> _uniforms;
 }
 @end
 
 @implementation WLActor
-+ (instancetype)actorWithMesh:(WLMesh *)mesh
-{
-  return [[self alloc] initWithMesh:mesh];
-}
 
-- (instancetype)initWithMesh:(WLMesh *)mesh
+- (instancetype)initWithDevice:(id<MTLDevice>)device
 {
   self = [super init];
   if (self) {
-    _mesh = mesh;
-    _mat = matrix_identity_float4x4;
-    _rotFactor = 0.0;
+    _uniforms = [device newBufferWithLength:sizeof(WLUniforms)
+                                     options:MTLResourceOptionCPUCacheModeDefault];
   }
-  return self;
+  return self;;
 }
 
 - (void)update:(float)dt
-{
-  _rotFactor += (dt * 0.25f );
-  if (_rotFactor > 1.0f) {
-    _rotFactor = 0.0f;
-  }
+{}
 
-  vector_float3 axis = {0, 1, 0};
-  _mat = wl_matrix4x4_rotation(M_PI * 2 * _rotFactor, axis);
-}
-
-- (matrix_float4x4)mat
+- (matrix_float4x4)modelMatrix
 {
-  return _mat;
+  return matrix_identity_float4x4;
 }
 
 - (WLMesh *)mesh
 {
-  return _mesh;
+  WLAssertionFailure(@"Needs to be subclassed");
+  return nil;
 }
+
+- (void)render:(id<MTLRenderCommandEncoder>)command
+        camera:(WLCamera *)camera
+{
+  matrix_float4x4 mMatrix = self.modelMatrix;
+  matrix_float4x4 mvMatrix = matrix_multiply(camera.viewMatrix, mMatrix);
+  matrix_float3x3 nMatrix = simd_transpose(simd_inverse(wl_matrix_float4x4_extract_linear(mvMatrix)));
+
+  WLUniforms *uniform = [_uniforms contents];
+  uniform->mvMatrix = mvMatrix;
+  uniform->nMatrix = nMatrix;
+  uniform->mvpMatrix = matrix_multiply(camera.projMatrix, mvMatrix);
+  [command setVertexBuffer:_uniforms offset:0 atIndex:1];
+
+  // set actor position info
+  [self.mesh render:command];
+}
+
 @end

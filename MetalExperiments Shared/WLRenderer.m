@@ -6,10 +6,9 @@
 #import "WLRenderer.h"
 #import "WLTypes.h"
 #import "WLMath.h"
-#import "WLCubeMesh.h"
-#import "WLResourceMesh.h"
-#import "WLActor.h"
+#import "WLMesh.h"
 #import "WLCamera.h"
+#import "WLActor.h"
 
 const WLRendererConfig gConfig = {
   .pixelFormat = MTLPixelFormatBGRA8Unorm,
@@ -21,12 +20,9 @@ const WLRendererConfig gConfig = {
   id<MTLDevice> _device;
   id<MTLLibrary> _lib;
   id<MTLRenderPipelineState> _pipeline;
-  id<MTLCommandQueue> _cmdQueue;
   id<MTLDepthStencilState> _depth;
+  id<MTLCommandQueue> _cmdQueue;
   id<MTLTexture> _depthTexture;
-  id<MTLBuffer> _uniformBuffer;
-  NSMutableArray *_actors;
-  WLCamera *_camera;
 }
 @end
 
@@ -36,8 +32,6 @@ const WLRendererConfig gConfig = {
 {
   self = [super init];
   if (self) {
-    _actors = [NSMutableArray array];
-    _camera = [WLCamera camera];
     _device = MTLCreateSystemDefaultDevice();
   }
   return self;
@@ -52,97 +46,80 @@ const WLRendererConfig gConfig = {
 {
   // pipeline
   _lib = [_device newDefaultLibrary];
+
   MTLRenderPipelineDescriptor *pipeDesc = [[MTLRenderPipelineDescriptor alloc] init];
   pipeDesc.vertexFunction = [_lib newFunctionWithName:@"vert_main"];
   pipeDesc.fragmentFunction = [_lib newFunctionWithName:@"frag_main"];
   pipeDesc.colorAttachments[0].pixelFormat = gConfig.pixelFormat;
   pipeDesc.depthAttachmentPixelFormat = gConfig.depthFormat;
   _pipeline = [_device newRenderPipelineStateWithDescriptor:pipeDesc error:nil];
-  _cmdQueue = [_device newCommandQueue];
 
   MTLDepthStencilDescriptor *depthDesc = [[MTLDepthStencilDescriptor alloc] init];
   depthDesc.depthCompareFunction = MTLCompareFunctionLess;
   depthDesc.depthWriteEnabled = YES;
   _depth = [_device newDepthStencilStateWithDescriptor:depthDesc];
 
-  _uniformBuffer = [_device newBufferWithLength:sizeof(WLUniforms)
-                                        options:MTLResourceOptionCPUCacheModeDefault];
-
-  NSURL *path = [[NSBundle mainBundle] URLForResource:@"teapot" withExtension:@"obj"];
-  WLMesh *mesh = [[WLResourceMesh alloc] initWithDevice:_device resource:path name:@"teapot"];
-  [self addActor:[WLActor actorWithMesh:mesh]];
+  _cmdQueue = [_device newCommandQueue];
 }
 
 - (void)resize:(CGSize)size
 {
-  MTLTextureDescriptor *depthTexDesc = [MTLTextureDescriptor texture2DDescriptorWithPixelFormat:gConfig.depthFormat
-                                                                                          width:size.width
-                                                                                         height:size.height
-                                                                                      mipmapped:NO];
+  MTLTextureDescriptor *depthTexDesc = [MTLTextureDescriptor
+                                        texture2DDescriptorWithPixelFormat:gConfig.depthFormat
+                                        width:size.width
+                                        height:size.height
+                                        mipmapped:NO];
   depthTexDesc.usage = MTLTextureUsageRenderTarget;
   depthTexDesc.storageMode = MTLStorageModePrivate;
   _depthTexture = [_device newTextureWithDescriptor:depthTexDesc];
 }
 
-- (void)addActor:(WLActor *)actor
-{
-  [_actors addObject:actor];
-}
 
-- (void)update:(float)dt
+- (void)renderScene:(WLScene *)scene
+            texture:(id<MTLTexture>)texture
+           drawable:(id<MTLDrawable>)drawable;
 {
-  for (WLActor *actor in _actors) {
-    [actor update:dt];
+  id<MTLCommandBuffer> cmdBuf = [_cmdQueue commandBuffer];
+  for (NSInteger i = 0; i < (scene.actors.count + 1); ++i) {
+
+    MTLLoadAction loadAction = MTLLoadActionDontCare;
+    WLActor *actor = nil;
+    if (i == 0) {
+      loadAction = MTLLoadActionClear;
+    } else {
+      actor = [scene.actors objectAtIndex:i - 1];
+    }
+    id<MTLRenderCommandEncoder> command = [self renderCommandWithTexture:texture
+                                                              loadAction:loadAction
+                                                                  cmdBuf:cmdBuf];
+    [actor render:command camera:scene.camera];
+    [command endEncoding];
   }
+  [cmdBuf presentDrawable:drawable];
+  [cmdBuf commit];
 }
 
-- (void)renderWithTexture:(id<MTLTexture>)texture drawable:(id<MTLDrawable>)drawable;
+- (id<MTLRenderCommandEncoder>)renderCommandWithTexture:(id<MTLTexture>)texture
+                                               loadAction:(MTLLoadAction)loadAction
+                                                 cmdBuf:(id<MTLCommandBuffer>)cmdBuf
 {
   MTLRenderPassDescriptor *passDesc = [MTLRenderPassDescriptor renderPassDescriptor];
-
   passDesc.colorAttachments[0].texture = texture;
-  passDesc.colorAttachments[0].loadAction = MTLLoadActionClear;
+  passDesc.colorAttachments[0].loadAction = loadAction;
   passDesc.colorAttachments[0].storeAction = MTLStoreActionStore;
   passDesc.colorAttachments[0].clearColor = MTLClearColorMake(0.1, 0.1, 0.1, 1);
-
   passDesc.depthAttachment.texture = _depthTexture;
   passDesc.depthAttachment.clearDepth = 1.0f;
   passDesc.depthAttachment.loadAction = MTLLoadActionClear;
   passDesc.depthAttachment.storeAction = MTLStoreActionDontCare;
 
-  for (WLActor *actor in _actors) {
-    id<MTLCommandBuffer> cmdBuf = [_cmdQueue commandBuffer];
-    id<MTLRenderCommandEncoder> command = [cmdBuf renderCommandEncoderWithDescriptor:passDesc];
+  id<MTLRenderCommandEncoder> command = [cmdBuf renderCommandEncoderWithDescriptor:passDesc];
+  [command setRenderPipelineState:_pipeline];
+  [command setDepthStencilState:_depth];
+  [command setFrontFacingWinding:MTLWindingCounterClockwise];
+  [command setCullMode:MTLCullModeBack];
 
-    // prepare command encoder
-    [command setDepthStencilState:_depth];
-    [command setFrontFacingWinding:MTLWindingCounterClockwise];
-    [command setCullMode:MTLCullModeBack];
-    [command setRenderPipelineState:_pipeline];
-
-    // set actor position info
-    matrix_float4x4 mvMatrix = matrix_multiply(_camera.viewMatrix, actor.mat);
-    matrix_float3x3 nMatrix = simd_transpose(simd_inverse(wl_matrix_float4x4_extract_linear(mvMatrix)));
-
-    WLUniforms uniforms = {
-      .mvMatrix = mvMatrix,
-      .nMatrix = nMatrix,
-      .mvpMatrix = matrix_multiply(_camera.projMatrix, mvMatrix),
-    };
-    memcpy([_uniformBuffer contents], &uniforms, sizeof(uniforms));
-
-    [command setVertexBuffer:_uniformBuffer offset:0 atIndex:1];
-
-    // set actor vertex info
-    [actor.mesh render:command];
-
-    [command endEncoding];
-
-    [cmdBuf presentDrawable:drawable];
-    [cmdBuf commit];
-  }
+  return command;
 }
 
-
 @end
-
