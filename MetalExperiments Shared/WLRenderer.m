@@ -80,19 +80,12 @@ const WLRendererConfig gConfig = {
            drawable:(id<MTLDrawable>)drawable;
 {
   id<MTLCommandBuffer> cmdBuf = [_cmdQueue commandBuffer];
-  for (NSInteger i = 0; i < (scene.actors.count + 1); ++i) {
-
-    MTLLoadAction loadAction = MTLLoadActionDontCare;
-    WLActor *actor = nil;
-    if (i == 0) {
-      loadAction = MTLLoadActionClear;
-    } else {
-      actor = [scene.actors objectAtIndex:i - 1];
-    }
+  for (NSInteger i = 0; i < scene.actors.count; ++i) {
+    MTLLoadAction loadAction = (i == 0) ? MTLLoadActionClear: MTLLoadActionLoad;
     id<MTLRenderCommandEncoder> command = [self renderCommandWithTexture:texture
                                                               loadAction:loadAction
                                                                   cmdBuf:cmdBuf];
-    [actor render:command camera:scene.camera];
+    [[scene.actors objectAtIndex:i] render:command camera:scene.camera];
     [command endEncoding];
   }
   [cmdBuf presentDrawable:drawable];
