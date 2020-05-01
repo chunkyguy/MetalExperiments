@@ -38,7 +38,7 @@
   }
 
   vector_float3 axis = { 1, 1, 0 };
-  _mat = wl_matrix4x4_rotation(M_PI * 2 * _rotFactor, axis);
+  _mat = wl_rotation(M_PI * 2 * _rotFactor, axis);
 }
 
 - (matrix_float4x4)modelMatrix

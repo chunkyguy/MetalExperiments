@@ -7,8 +7,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, WLPlaneDirection) {
+  WLPlaneDirectionBottom,
+  WLPlaneDirectionTop,
+  WLPlaneDirectionLeft,
+  WLPlaneDirectionRight,
+  WLPlaneDirectionBack,
+  WLPlaneDirectionFront
+};
+
 @interface WLPlane : WLActor
-- (instancetype)initWithDevice:(id<MTLDevice>)device;
+- (instancetype)initWithDevice:(id<MTLDevice>)device
+                     direction:(WLPlaneDirection)direction;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -90,6 +90,8 @@ const WLRendererConfig gConfig = {
   }
   [cmdBuf presentDrawable:drawable];
   [cmdBuf commit];
+
+  [cmdBuf waitUntilCompleted];
 }
 
 - (id<MTLRenderCommandEncoder>)renderCommandWithTexture:(id<MTLTexture>)texture

@@ -45,7 +45,7 @@
 {
   matrix_float4x4 mMatrix = self.modelMatrix;
   matrix_float4x4 mvMatrix = matrix_multiply(camera.viewMatrix, mMatrix);
-  matrix_float3x3 nMatrix = simd_transpose(simd_inverse(wl_matrix_float4x4_extract_linear(mvMatrix)));
+  matrix_float3x3 nMatrix = simd_transpose(simd_inverse(wl_convert(mvMatrix)));
 
   WLUniforms *uniform = [_uniforms contents];
   uniform->mvMatrix = mvMatrix;

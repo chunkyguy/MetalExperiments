@@ -29,7 +29,8 @@
 
 - (void)setUp:(id<MTLDevice>)device
 {
-  [_actors addObject:[[WLPlane alloc] initWithDevice:device]];
+  [_actors addObject:[[WLPlane alloc] initWithDevice:device
+                                           direction:WLPlaneDirectionBottom]];
   [_actors addObject:[[WLTeapot alloc] initWithDevice:device]];
 }
 

@@ -25,11 +25,11 @@
   self = [super init];
   if (self) {
     vector_float3 cam = {0, 0, -1.5 };
-    _viewMatrix = wl_matrix4x4_translation_float3(cam);
+    _viewMatrix = wl_translation_float3(cam);
     
     float fov = (2 * M_PI)/5.0f;
     float aspect = 1.0f;
-    _projMatrix = wl_matrix_perspective_right_hand(fov, aspect, 1.0f, 100.0f);
+    _projMatrix = wl_perspective(fov, aspect, 1.0f, 100.0f);
     
   }
   return self;
