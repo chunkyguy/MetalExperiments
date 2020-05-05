@@ -4,15 +4,16 @@
 // 
 
 #import <Foundation/Foundation.h>
-#include <Metal/Metal.h>
+#import <Metal/Metal.h>
+#import "WLCamera.h"
+#import "WLTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class WLCamera;
-
 @interface WLScene : NSObject
 - (void)setUp:(id<MTLDevice>)device;
-- (void)update:(float)dt;
+- (void)update:(float)dt
+         event:(WLKeyEvent)event;
 
 @property (nonatomic, readonly) WLCamera *camera;
 @property (nonatomic, readonly) NSArray *actors;

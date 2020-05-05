@@ -22,4 +22,12 @@ typedef struct _WLUniforms {
   matrix_float4x4 mvpMatrix;
 } WLUniforms;
 
+typedef NS_ENUM(NSUInteger, WLKeyEvent) {
+  WLKeyEventUp,
+  WLKeyEventDown,
+  WLKeyEventLeft,
+  WLKeyEventRight,
+  WLKeyEventIdle
+};
+
 #endif /* WLTypes_h */

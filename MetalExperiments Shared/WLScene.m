@@ -34,8 +34,9 @@
   [_actors addObject:[[WLTeapot alloc] initWithDevice:device]];
 }
 
-- (void)update:(float)dt
+- (void)update:(float)dt event:(WLKeyEvent)event
 {
+  [_camera updateEvent:event];
   for (WLActor *actor in _actors) {
     [actor update:dt];
   }

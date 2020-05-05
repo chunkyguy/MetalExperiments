@@ -21,5 +21,7 @@ matrix_float4x4 wl_rotation_axis_angle(vector_float4 axisAngle);
 matrix_float4x4 wl_perspective(float fovyRadians, float aspect, float nearZ, float farZ);
 matrix_float3x3 wl_convert(matrix_float4x4 m);
 
+float wlRegionClam(float value, float min, float max);
+
 
 #endif /* WLMath_h */

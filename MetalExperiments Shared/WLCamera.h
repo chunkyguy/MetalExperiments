@@ -5,12 +5,15 @@
 
 #import <Foundation/Foundation.h>
 #import <simd/simd.h>
+#import "WLTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WLCamera : NSObject
 
 + (instancetype)camera;
+
+- (void)updateEvent:(WLKeyEvent)event;
 
 @property (nonatomic, readonly) matrix_float4x4 viewMatrix;
 @property (nonatomic, readonly) matrix_float4x4 projMatrix;

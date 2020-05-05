@@ -74,4 +74,15 @@ matrix_float3x3 wl_convert(matrix_float4x4 m)
     return l;
 }
 
+float wlRegionClam(float value, float min, float max)
+{
+  if (value > max) {
+    return value - max;
+  } else if (value < min) {
+    return max + value;
+  } else {
+    return value;
+  }
+}
+
 const float kTau = (float)M_PI * 2.0f;
