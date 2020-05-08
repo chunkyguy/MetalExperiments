@@ -24,13 +24,13 @@
     _mesh = [[WLPlaneMesh alloc] initWithDevice:device];
 
     vector_float4 axisAngle = { .0f, .0f, .0f, .0f };
-    vector_float3 translate = { .0f, .0f, -12.0f };
+    vector_float3 translate = { .0f, .0f, 0.0f };
     switch (direction) {
       case WLPlaneDirectionBottom:
         axisAngle.x = 1;
         axisAngle.w = -M_PI * 0.5f;
         translate.y = -6.9f;
-        translate.z = -12.0f;
+        translate.z = 0.0f;
         break;
 
       case WLPlaneDirectionTop:
@@ -62,8 +62,7 @@
         break;
     }
 
-
-    matrix_float4x4 sMat = wl_scale(7, 4, 1);
+    matrix_float4x4 sMat = wl_scale(100, 100, 1);
     matrix_float4x4 rMat = wl_rotation_axis_angle(axisAngle);
     matrix_float4x4 tMat = wl_translation_float3(translate);
 

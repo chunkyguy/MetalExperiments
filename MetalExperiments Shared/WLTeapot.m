@@ -32,13 +32,14 @@
 
 - (void)update:(float)dt
 {
-  _rotFactor += (dt * 0.25f );
-  if (_rotFactor > 1.0f) {
-    _rotFactor = 1.0 - _rotFactor;
-  }
-
-  vector_float3 axis = { 1, 1, 0 };
-  _mat = wl_rotation(M_PI * 2 * _rotFactor, axis);
+  [super update:dt];
+//  _rotFactor += (dt * 0.25f );
+//  if (_rotFactor > 1.0f) {
+//    _rotFactor = 1.0 - _rotFactor;
+//  }
+//
+//  vector_float3 axis = { 1, 1, 0 };
+//  _mat = wl_rotation(M_PI * 2 * _rotFactor, axis);
 }
 
 - (matrix_float4x4)modelMatrix

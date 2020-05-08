@@ -11,6 +11,7 @@
 @interface WLActor ()
 {
   id<MTLBuffer> _uniforms;
+  float _spotlightAngle;
 }
 @end
 
@@ -22,12 +23,18 @@
   if (self) {
     _uniforms = [device newBufferWithLength:sizeof(WLUniforms)
                                      options:MTLResourceOptionCPUCacheModeDefault];
+    _spotlightAngle = 0.0f;
   }
   return self;;
 }
 
 - (void)update:(float)dt
-{}
+{
+  _spotlightAngle += 0.25f * dt;
+  if (_spotlightAngle > kTau) {
+    _spotlightAngle -= kTau;
+  }
+}
 
 - (matrix_float4x4)modelMatrix
 {
@@ -51,7 +58,10 @@
   uniform->mvMatrix = mvMatrix;
   uniform->nMatrix = nMatrix;
   uniform->mvpMatrix = matrix_multiply(camera.projMatrix, mvMatrix);
+  uniform->spotlightAngle = _spotlightAngle;
+
   [command setVertexBuffer:_uniforms offset:0 atIndex:1];
+  [command setFragmentBuffer:_uniforms offset:0 atIndex:0];
 
   // set actor position info
   [self.mesh render:command];
