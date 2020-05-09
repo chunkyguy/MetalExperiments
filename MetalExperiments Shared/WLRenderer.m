@@ -80,14 +80,14 @@ const WLRendererConfig gConfig = {
            drawable:(id<MTLDrawable>)drawable;
 {
   id<MTLCommandBuffer> cmdBuf = [_cmdQueue commandBuffer];
+  id<MTLRenderCommandEncoder> command = [self renderCommandWithTexture:texture
+                                                            loadAction:MTLLoadActionClear
+                                                                cmdBuf:cmdBuf];
   for (NSInteger i = 0; i < scene.actors.count; ++i) {
-    MTLLoadAction loadAction = (i == 0) ? MTLLoadActionClear: MTLLoadActionLoad;
-    id<MTLRenderCommandEncoder> command = [self renderCommandWithTexture:texture
-                                                              loadAction:loadAction
-                                                                  cmdBuf:cmdBuf];
-    [[scene.actors objectAtIndex:i] render:command camera:scene.camera];
-    [command endEncoding];
+    [[scene.actors objectAtIndex:i] render:command
+                                    camera:scene.camera];
   }
+  [command endEncoding];
   [cmdBuf presentDrawable:drawable];
   [cmdBuf commit];
 
@@ -102,7 +102,7 @@ const WLRendererConfig gConfig = {
   passDesc.colorAttachments[0].texture = texture;
   passDesc.colorAttachments[0].loadAction = loadAction;
   passDesc.colorAttachments[0].storeAction = MTLStoreActionStore;
-  passDesc.colorAttachments[0].clearColor = MTLClearColorMake(0.1, 0.1, 0.1, 1);
+  passDesc.colorAttachments[0].clearColor = MTLClearColorMake(0.5, 0.5, 0.5, 1);
   passDesc.depthAttachment.texture = _depthTexture;
   passDesc.depthAttachment.clearDepth = 1.0f;
   passDesc.depthAttachment.loadAction = MTLLoadActionClear;

@@ -15,10 +15,9 @@ struct Light {
   float3 La; // Ambient
   float3 Ld; // Diffuse
 };
-
 constant Light gLight = {
   .position = { 5.0, 5.0, 2.0, 0.0f },
-  .La = { 0.0, 0.0, 0.0 },
+  .La = { 0.2, 0.2, 0.2 },
   .Ld = { 1.0, 1.0, 1.0 },
 };
 
@@ -31,6 +30,15 @@ constant Material gMaterial = {
   .Kd = { 0.9f, 0.5f, 0.3f },
   .Ks = { 0.8f, 0.8f, 0.8f },
   .shine = 30.0f
+};
+
+struct Fog {
+  float2 dist;
+  float3 color;
+};
+constant Fog gFog = {
+  .dist = { 1.0f, 7.0f },
+  .color = { 0.5f, 0.5f, 0.5f }
 };
 
 struct Uniforms {
@@ -50,7 +58,7 @@ struct VertexOut {
   float3 wNormal;
 };
 
-float4 getColor(const float4 position, const float3 normal, const Light light)
+float3 getColor(const float4 position, const float3 normal, const Light light)
 {
   float3 ambient = light.La * gMaterial.Ka;
 
@@ -58,16 +66,14 @@ float4 getColor(const float4 position, const float3 normal, const Light light)
   float3 s = normalize(float3(light.position) - float3(position));
   float3 n = normalize(normal);
   float cosine = max(0.0, dot(s, n));
-  float levels = 4.0f;
-  float scaleFactor = 0.7f;
-  diffuse = gMaterial.Kd * floor(cosine * levels) * scaleFactor * max(0.0f, dot(normal, s.xyz));
+  diffuse = gMaterial.Kd * cosine * max(0.0f, dot(normal, s.xyz));
 
   float3 spec = float3(0.0);
-//  float3 v = normalize(-position.xyz);
-//  float3 h = normalize(v + s);
-//  spec = gMaterial.Ks * pow(max(0.0f, dot(h, n)), gMaterial.shine);
+  float3 v = normalize(-position.xyz);
+  float3 h = normalize(v + s);
+  spec = gMaterial.Ks * pow(max(0.0f, dot(h, n)), gMaterial.shine);
 
-  return float4(ambient + diffuse + spec, 1.0);
+  return ambient + diffuse + spec;
 }
 
 vertex VertexOut vert_main(
@@ -89,5 +95,11 @@ vertex VertexOut vert_main(
 
 fragment float4 frag_main(VertexOut v [[stage_in]], constant Uniforms &uniforms [[buffer(0)]])
 {
-  return getColor(v.wPos, v.wNormal, gLight);
+  float3 color = getColor(v.wPos, v.wNormal, gLight);
+
+  float dist = abs(v.wPos.z);
+  float fogFactor = (gFog.dist[1] - dist)/(gFog.dist[1] - gFog.dist[0]);
+  fogFactor = clamp(fogFactor, 0.0f, 1.0f);
+//  return float4(float3(fogFactor), 1.0f);
+  return float4(mix(gFog.color, color.xyz, fogFactor), 1.0f);
 }
