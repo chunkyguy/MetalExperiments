@@ -20,7 +20,6 @@ typedef struct _WLUniforms {
   matrix_float4x4 mvMatrix;
   matrix_float3x3 nMatrix;
   matrix_float4x4 mvpMatrix;
-  float spotlightAngle;
 } WLUniforms;
 
 typedef NS_ENUM(NSUInteger, WLKeyEvent) {
