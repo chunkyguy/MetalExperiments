@@ -38,8 +38,15 @@ struct Fog {
 };
 constant Fog gFog = {
   .dist = { 1.0f, 7.0f },
-  .color = { 0.5f, 0.5f, 0.5f }
+  .color = { 0.2f, 0.3f, 0.5f }
 };
+float3 addFog(const Fog fog, const float dist, const float3 color)
+{
+  float d = abs(dist);
+  float fogFactor = ((fog.dist[1] - d)/(fog.dist[1] - fog.dist[0]));
+  fogFactor = clamp(fogFactor, 0.0f, 1.0f);
+  return mix(gFog.color, color.xyz, fogFactor);
+}
 
 struct Uniforms {
   float4x4 mvMatrix;
@@ -93,13 +100,9 @@ vertex VertexOut vert_main(
   return out;
 }
 
+
 fragment float4 frag_main(VertexOut v [[stage_in]], constant Uniforms &uniforms [[buffer(0)]])
 {
   float3 color = getColor(v.wPos, v.wNormal, gLight);
-
-  float dist = abs(v.wPos.z);
-  float fogFactor = (gFog.dist[1] - dist)/(gFog.dist[1] - gFog.dist[0]);
-  fogFactor = clamp(fogFactor, 0.0f, 1.0f);
-//  return float4(float3(fogFactor), 1.0f);
-  return float4(mix(gFog.color, color.xyz, fogFactor), 1.0f);
+  return float4(addFog(gFog, v.wPos.z, color), 1.0f);
 }

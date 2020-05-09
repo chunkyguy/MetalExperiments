@@ -31,14 +31,12 @@
 {
   [_actors addObject:[[WLPlane alloc] initWithDevice:device
                                            direction:WLPlaneDirectionBottom]];
-  [_actors addObject:[[WLTeapot alloc] initWithDevice:device
-                                             position:(simd_float3){-1.0f, 0.0f, 0.0f }]];
-  [_actors addObject:[[WLTeapot alloc] initWithDevice:device
-                                             position:(simd_float3){-1.0f, 0.0f, -2.0f }]];
-  [_actors addObject:[[WLTeapot alloc] initWithDevice:device
-                                             position:(simd_float3){-1.0f, 0.0f, -4.0f }]];
-  [_actors addObject:[[WLTeapot alloc] initWithDevice:device
-                                             position:(simd_float3){-1.0f, 0.0f, -6.0f }]];
+
+  for (int i = 0; i < 5; ++i) {
+    float z = i * 1.5f;
+    [_actors addObject:[[WLTeapot alloc] initWithDevice:device
+                                               position:(simd_float3){ -0.5f, 0.0f, -z }]];
+  }
 }
 
 - (void)update:(float)dt event:(WLKeyEvent)event

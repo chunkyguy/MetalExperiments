@@ -36,10 +36,10 @@
 - (void)update:(float)dt
 {
   [super update:dt];
-//  _rotFactor += (dt * 0.25f );
-//  if (_rotFactor > 1.0f) {
-//    _rotFactor = 1.0 - _rotFactor;
-//  }
+  _rotFactor += (dt * 0.25f );
+  if (_rotFactor > 1.0f) {
+    _rotFactor = 1.0 - _rotFactor;
+  }
 
   vector_float3 axis = { 0, 1, 0 };
   simd_float4x4 rMat  = wl_rotation(M_PI * 2 * _rotFactor, axis);

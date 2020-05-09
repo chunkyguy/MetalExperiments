@@ -14,9 +14,9 @@
             filePath = "MetalExperiments Shared/WLScene.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "-update:event:"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-setUp:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
