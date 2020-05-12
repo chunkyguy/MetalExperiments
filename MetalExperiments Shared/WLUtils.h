@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 vector_float4 wl_whiteColor(float value);
 
 @interface WLUtils : NSObject
-
++ (NSURL *)resourceNamed:(NSString *)name;
 @end
 
 NS_ASSUME_NONNULL_END

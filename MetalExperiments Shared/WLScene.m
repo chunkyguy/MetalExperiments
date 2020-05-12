@@ -6,7 +6,7 @@
 #import "WLScene.h"
 #import "WLActor.h"
 #import "WLCamera.h"
-#import "WLTeapot.h"
+#import "WLOBJActor.h"
 #import "WLPlane.h"
 
 @interface WLScene ()
@@ -29,14 +29,16 @@
 
 - (void)setUp:(id<MTLDevice>)device
 {
-  WLPlane *floor = [[WLPlane alloc] initWithDevice:device
-                        direction:WLPlaneDirectionBottom];
-  floor.textureNames = @[@"brick1.jpg"];
+//  WLPlane *floor = [[WLPlane alloc] initWithDevice:device
+//                        direction:WLPlaneDirectionBottom];
+//  floor.textureNames = @[@"brick1.jpg, @moss.png"];
 
-  WLTeapot *teapot = [[WLTeapot alloc] initWithDevice:device
-                                             position:(simd_float3){ 0.0f, 0.0f, 0.0f }];
-  teapot.textureNames = @[@"cement.jpg", @"moss.png"];
-  _actors = @[floor, teapot];
+  WLOBJActor *actor = [[WLOBJActor alloc] initWithDevice:device
+                                                   named:@"bs_ears.obj"
+                                                position:simd_make_float3(0.0f)];
+  [actor setSpeed:WLOBJActorRotationSpeedNone];
+  actor.textureNames = @[@"ogre_diffuse.png"];
+  _actors = @[actor];
 }
 
 - (void)update:(float)dt event:(WLKeyEvent)event

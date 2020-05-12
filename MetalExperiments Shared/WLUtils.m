@@ -11,5 +11,11 @@ vector_float4 wl_whiteColor(float value)
 }
 
 @implementation WLUtils
++ (NSURL *)resourceNamed:(NSString *)name
+{
+  NSArray *comps = [name componentsSeparatedByString:@"."];
+  return [[NSBundle mainBundle] URLForResource:[comps firstObject]
+                                 withExtension:[comps lastObject]];
 
+}
 @end

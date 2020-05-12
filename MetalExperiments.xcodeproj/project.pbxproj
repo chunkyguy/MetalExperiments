@@ -31,9 +31,9 @@
 		79DAE097245768A6000F85EF /* WLScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE094245768A6000F85EF /* WLScene.m */; };
 		79DAE09E24576CE8000F85EF /* WLMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 79CBED9124524DE300916540 /* WLMath.c */; };
 		79DAE09F24576CE8000F85EF /* WLMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 79CBED9124524DE300916540 /* WLMath.c */; };
-		79DAE0A624576DAB000F85EF /* WLTeapot.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0A524576DAB000F85EF /* WLTeapot.m */; };
-		79DAE0A724576DAB000F85EF /* WLTeapot.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0A524576DAB000F85EF /* WLTeapot.m */; };
-		79DAE0A824576DAB000F85EF /* WLTeapot.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0A524576DAB000F85EF /* WLTeapot.m */; };
+		79DAE0A624576DAB000F85EF /* WLOBJActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0A524576DAB000F85EF /* WLOBJActor.m */; };
+		79DAE0A724576DAB000F85EF /* WLOBJActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0A524576DAB000F85EF /* WLOBJActor.m */; };
+		79DAE0A824576DAB000F85EF /* WLOBJActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0A524576DAB000F85EF /* WLOBJActor.m */; };
 		79DAE0A924576F00000F85EF /* MBEOBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE09B24576C79000F85EF /* MBEOBJModel.mm */; };
 		79DAE0AA24576F01000F85EF /* MBEOBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE09B24576C79000F85EF /* MBEOBJModel.mm */; };
 		79DAE0AB24576F02000F85EF /* MBEOBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE09B24576C79000F85EF /* MBEOBJModel.mm */; };
@@ -245,8 +245,8 @@
 		79DAE09B24576C79000F85EF /* MBEOBJModel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MBEOBJModel.mm; sourceTree = "<group>"; };
 		79DAE09C24576C79000F85EF /* MBEOBJModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBEOBJModel.h; sourceTree = "<group>"; };
 		79DAE09D24576C79000F85EF /* MBEOBJGroup.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MBEOBJGroup.mm; sourceTree = "<group>"; };
-		79DAE0A424576DAB000F85EF /* WLTeapot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTeapot.h; sourceTree = "<group>"; };
-		79DAE0A524576DAB000F85EF /* WLTeapot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTeapot.m; sourceTree = "<group>"; };
+		79DAE0A424576DAB000F85EF /* WLOBJActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLOBJActor.h; sourceTree = "<group>"; };
+		79DAE0A524576DAB000F85EF /* WLOBJActor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLOBJActor.m; sourceTree = "<group>"; };
 		79DAE0B32458BE9F000F85EF /* WLPlane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPlane.h; sourceTree = "<group>"; };
 		79DAE0B42458BE9F000F85EF /* WLPlane.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPlane.m; sourceTree = "<group>"; };
 		79DAE0B62458C04C000F85EF /* WLPlaneMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPlaneMesh.h; sourceTree = "<group>"; };
@@ -427,8 +427,8 @@
 			children = (
 				79DAE06C2455ABE8000F85EF /* WLActor.h */,
 				79DAE06D2455ABE8000F85EF /* WLActor.m */,
-				79DAE0A424576DAB000F85EF /* WLTeapot.h */,
-				79DAE0A524576DAB000F85EF /* WLTeapot.m */,
+				79DAE0A424576DAB000F85EF /* WLOBJActor.h */,
+				79DAE0A524576DAB000F85EF /* WLOBJActor.m */,
 				79DAE0B32458BE9F000F85EF /* WLPlane.h */,
 				79DAE0B42458BE9F000F85EF /* WLPlane.m */,
 			);
@@ -928,7 +928,7 @@
 			files = (
 				79DAE095245768A6000F85EF /* WLScene.m in Sources */,
 				79DAE06E2455ABE8000F85EF /* WLActor.m in Sources */,
-				79DAE0A624576DAB000F85EF /* WLTeapot.m in Sources */,
+				79DAE0A624576DAB000F85EF /* WLOBJActor.m in Sources */,
 				79FC9DB42467744F00ADAEB3 /* WLImage.m in Sources */,
 				79DAE09E24576CE8000F85EF /* WLMath.c in Sources */,
 				79DAE0692455A494000F85EF /* WLUtils.m in Sources */,
@@ -954,7 +954,7 @@
 			files = (
 				79DAE096245768A6000F85EF /* WLScene.m in Sources */,
 				79DAE06F2455ABE8000F85EF /* WLActor.m in Sources */,
-				79DAE0A724576DAB000F85EF /* WLTeapot.m in Sources */,
+				79DAE0A724576DAB000F85EF /* WLOBJActor.m in Sources */,
 				79DAE09F24576CE8000F85EF /* WLMath.c in Sources */,
 				79DAE06A2455A494000F85EF /* WLUtils.m in Sources */,
 				79DAE0AA24576F01000F85EF /* MBEOBJModel.mm in Sources */,
@@ -982,7 +982,7 @@
 				79DAE0BA2458C379000F85EF /* WLPlane.m in Sources */,
 				79FC9DB62467744F00ADAEB3 /* WLImage.m in Sources */,
 				79DAE0602454DF87000F85EF /* WLMesh.m in Sources */,
-				79DAE0A824576DAB000F85EF /* WLTeapot.m in Sources */,
+				79DAE0A824576DAB000F85EF /* WLOBJActor.m in Sources */,
 				79DAE059245463C8000F85EF /* WLRenderer.m in Sources */,
 				79DAE0BC2458C392000F85EF /* WLPlaneMesh.m in Sources */,
 				79F552EB244E31C300BC9E96 /* GameViewController.m in Sources */,

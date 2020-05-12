@@ -35,9 +35,9 @@
 - (void)setTextureNames:(NSArray *)textureNames
 {
   for (NSString *textureName in textureNames) {
-    NSArray *comps = [textureName componentsSeparatedByString:@"."];
-    NSURL *loc = [[NSBundle mainBundle] URLForResource:[comps firstObject] withExtension:[comps lastObject]];
-    [_textures addObject:[_texLoader newTextureWithContentsOfURL:loc options:nil error:nil]];
+    [_textures addObject:[_texLoader
+                          newTextureWithContentsOfURL:[WLUtils resourceNamed:textureName]
+                          options:nil error:nil]];
   }
 }
 

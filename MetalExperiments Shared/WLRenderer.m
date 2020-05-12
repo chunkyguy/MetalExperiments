@@ -113,7 +113,7 @@ const WLRendererConfig gConfig = {
   [command setRenderPipelineState:_pipeline];
   [command setDepthStencilState:_depth];
   [command setFrontFacingWinding:MTLWindingCounterClockwise];
-  [command setCullMode:MTLCullModeBack];
+//  [command setCullMode:MTLCullModeBack];
 
   return command;
 }

@@ -20,12 +20,11 @@
 @implementation WLResourceMesh
 - (instancetype)initWithDevice:(id<MTLDevice>)device
                       resource:(NSURL *)resource
-                          name:(NSString *)name;
 {
   self = [super initWithDevice:device];
   if (self) {
     MBEOBJModel *model = [[MBEOBJModel alloc] initWithContentsOfURL:resource generateNormals:YES];
-    _model = [model groupForName:name];
+    _model = [[model groups] firstObject];
     [self loadBuffers];
   }
   return self;
