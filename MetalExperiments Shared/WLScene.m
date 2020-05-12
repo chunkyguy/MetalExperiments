@@ -32,11 +32,8 @@
   [_actors addObject:[[WLPlane alloc] initWithDevice:device
                                            direction:WLPlaneDirectionBottom]];
 
-  for (int i = 0; i < 5; ++i) {
-    float z = i * 1.5f;
-    [_actors addObject:[[WLTeapot alloc] initWithDevice:device
-                                               position:(simd_float3){ -0.5f, 0.0f, -z }]];
-  }
+  [_actors addObject:[[WLTeapot alloc] initWithDevice:device
+                                             position:(simd_float3){ 0.0f, 0.0f, 0.0f }]];
 }
 
 - (void)update:(float)dt event:(WLKeyEvent)event

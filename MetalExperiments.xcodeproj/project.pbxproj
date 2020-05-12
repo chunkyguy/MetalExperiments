@@ -14,9 +14,6 @@
 		79DAE05E2454DF87000F85EF /* WLMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE05D2454DF87000F85EF /* WLMesh.m */; };
 		79DAE05F2454DF87000F85EF /* WLMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE05D2454DF87000F85EF /* WLMesh.m */; };
 		79DAE0602454DF87000F85EF /* WLMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE05D2454DF87000F85EF /* WLMesh.m */; };
-		79DAE06424559DF5000F85EF /* WLCubeMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE06324559DF5000F85EF /* WLCubeMesh.m */; };
-		79DAE06524559DF5000F85EF /* WLCubeMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE06324559DF5000F85EF /* WLCubeMesh.m */; };
-		79DAE06624559DF5000F85EF /* WLCubeMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE06324559DF5000F85EF /* WLCubeMesh.m */; };
 		79DAE0692455A494000F85EF /* WLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0682455A494000F85EF /* WLUtils.m */; };
 		79DAE06A2455A494000F85EF /* WLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0682455A494000F85EF /* WLUtils.m */; };
 		79DAE06B2455A494000F85EF /* WLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0682455A494000F85EF /* WLUtils.m */; };
@@ -26,9 +23,6 @@
 		79DAE0732455B0EC000F85EF /* WLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0722455B0EC000F85EF /* WLCamera.m */; };
 		79DAE0742455B0EC000F85EF /* WLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0722455B0EC000F85EF /* WLCamera.m */; };
 		79DAE0752455B0EC000F85EF /* WLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0722455B0EC000F85EF /* WLCamera.m */; };
-		79DAE0772455B7DF000F85EF /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = 79DAE0762455B7DF000F85EF /* teapot.obj */; };
-		79DAE0782455B7DF000F85EF /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = 79DAE0762455B7DF000F85EF /* teapot.obj */; };
-		79DAE0792455B7DF000F85EF /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = 79DAE0762455B7DF000F85EF /* teapot.obj */; };
 		79DAE07C2455C50E000F85EF /* WLResourceMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE07B2455C50E000F85EF /* WLResourceMesh.m */; };
 		79DAE07D2455C50E000F85EF /* WLResourceMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE07B2455C50E000F85EF /* WLResourceMesh.m */; };
 		79DAE07E2455C50E000F85EF /* WLResourceMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE07B2455C50E000F85EF /* WLResourceMesh.m */; };
@@ -77,6 +71,21 @@
 		79F552F8244E31C300BC9E96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F552B4244E31C300BC9E96 /* Assets.xcassets */; };
 		79F552F9244E31C300BC9E96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F552B4244E31C300BC9E96 /* Assets.xcassets */; };
 		79F552FA244E31C300BC9E96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F552B4244E31C300BC9E96 /* Assets.xcassets */; };
+		79FC9DAB24675BDF00ADAEB3 /* brick.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9DAA24675BDF00ADAEB3 /* brick.jpg */; };
+		79FC9DAC24675BDF00ADAEB3 /* brick.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9DAA24675BDF00ADAEB3 /* brick.jpg */; };
+		79FC9DAD24675BDF00ADAEB3 /* brick.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9DAA24675BDF00ADAEB3 /* brick.jpg */; };
+		79FC9DAF2467740600ADAEB3 /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9DAE2467740600ADAEB3 /* teapot.obj */; };
+		79FC9DB02467740600ADAEB3 /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9DAE2467740600ADAEB3 /* teapot.obj */; };
+		79FC9DB12467740600ADAEB3 /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9DAE2467740600ADAEB3 /* teapot.obj */; };
+		79FC9DB42467744F00ADAEB3 /* WLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC9DB32467744F00ADAEB3 /* WLImage.m */; };
+		79FC9DB52467744F00ADAEB3 /* WLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC9DB32467744F00ADAEB3 /* WLImage.m */; };
+		79FC9DB62467744F00ADAEB3 /* WLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC9DB32467744F00ADAEB3 /* WLImage.m */; };
+		79FC9DD62469EB4200ADAEB3 /* Image.tga in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9DD52469EB4200ADAEB3 /* Image.tga */; };
+		79FC9DD72469EB4200ADAEB3 /* Image.tga in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9DD52469EB4200ADAEB3 /* Image.tga */; };
+		79FC9DD82469EB4200ADAEB3 /* Image.tga in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9DD52469EB4200ADAEB3 /* Image.tga */; };
+		79FC9DDA246A098100ADAEB3 /* utc32.tga in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9DD9246A098100ADAEB3 /* utc32.tga */; };
+		79FC9DDB246A098100ADAEB3 /* utc32.tga in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9DD9246A098100ADAEB3 /* utc32.tga */; };
+		79FC9DDC246A098100ADAEB3 /* utc32.tga in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9DD9246A098100ADAEB3 /* utc32.tga */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,15 +96,12 @@
 		79DAE05B24546440000F85EF /* WLTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTypes.h; sourceTree = "<group>"; };
 		79DAE05C2454DF87000F85EF /* WLMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLMesh.h; sourceTree = "<group>"; };
 		79DAE05D2454DF87000F85EF /* WLMesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLMesh.m; sourceTree = "<group>"; };
-		79DAE06224559DF5000F85EF /* WLCubeMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLCubeMesh.h; sourceTree = "<group>"; };
-		79DAE06324559DF5000F85EF /* WLCubeMesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLCubeMesh.m; sourceTree = "<group>"; };
 		79DAE0672455A494000F85EF /* WLUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLUtils.h; sourceTree = "<group>"; };
 		79DAE0682455A494000F85EF /* WLUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLUtils.m; sourceTree = "<group>"; };
 		79DAE06C2455ABE8000F85EF /* WLActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLActor.h; sourceTree = "<group>"; };
 		79DAE06D2455ABE8000F85EF /* WLActor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLActor.m; sourceTree = "<group>"; };
 		79DAE0712455B0EC000F85EF /* WLCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLCamera.h; sourceTree = "<group>"; };
 		79DAE0722455B0EC000F85EF /* WLCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLCamera.m; sourceTree = "<group>"; };
-		79DAE0762455B7DF000F85EF /* teapot.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teapot.obj; sourceTree = "<group>"; };
 		79DAE07A2455C50E000F85EF /* WLResourceMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLResourceMesh.h; sourceTree = "<group>"; };
 		79DAE07B2455C50E000F85EF /* WLResourceMesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLResourceMesh.m; sourceTree = "<group>"; };
 		79DAE093245768A6000F85EF /* WLScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLScene.h; sourceTree = "<group>"; };
@@ -143,6 +149,13 @@
 		79F552ED244E31C300BC9E96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79F552EF244E31C300BC9E96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79F552F0244E31C300BC9E96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		79FC9DAA24675BDF00ADAEB3 /* brick.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brick.jpg; sourceTree = "<group>"; };
+		79FC9DAE2467740600ADAEB3 /* teapot.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teapot.obj; sourceTree = "<group>"; };
+		79FC9DB22467744F00ADAEB3 /* WLImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLImage.h; sourceTree = "<group>"; };
+		79FC9DB32467744F00ADAEB3 /* WLImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLImage.m; sourceTree = "<group>"; };
+		79FC9DD52469EB4200ADAEB3 /* Image.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Image.tga; sourceTree = "<group>"; };
+		79FC9DD9246A098100ADAEB3 /* utc32.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = utc32.tga; sourceTree = "<group>"; };
+		79FC9DDD246B375F00ADAEB3 /* WLShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLShaderTypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +200,6 @@
 				79DAE05D2454DF87000F85EF /* WLMesh.m */,
 				79DAE07A2455C50E000F85EF /* WLResourceMesh.h */,
 				79DAE07B2455C50E000F85EF /* WLResourceMesh.m */,
-				79DAE06224559DF5000F85EF /* WLCubeMesh.h */,
-				79DAE06324559DF5000F85EF /* WLCubeMesh.m */,
 				79DAE0B62458C04C000F85EF /* WLPlaneMesh.h */,
 				79DAE0B72458C04C000F85EF /* WLPlaneMesh.m */,
 			);
@@ -206,6 +217,8 @@
 				79DAE09B24576C79000F85EF /* MBEOBJModel.mm */,
 				79DAE09A24576C79000F85EF /* MBEOBJGroup.h */,
 				79DAE09D24576C79000F85EF /* MBEOBJGroup.mm */,
+				79FC9DB22467744F00ADAEB3 /* WLImage.h */,
+				79FC9DB32467744F00ADAEB3 /* WLImage.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -219,6 +232,7 @@
 				79DAE056245463C8000F85EF /* WLRenderer.m */,
 				79E436AA244E437700DAD61F /* WLRenderView.h */,
 				79E436AB244E437700DAD61F /* WLRenderView.m */,
+				79FC9DDD246B375F00ADAEB3 /* WLShaderTypes.h */,
 			);
 			name = Renderer;
 			sourceTree = "<group>";
@@ -226,7 +240,6 @@
 		79DAE0A124576D0C000F85EF /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				79DAE0A224576D3F000F85EF /* Resourses */,
 				79DAE093245768A6000F85EF /* WLScene.h */,
 				79DAE094245768A6000F85EF /* WLScene.m */,
 				79DAE0712455B0EC000F85EF /* WLCamera.h */,
@@ -235,14 +248,6 @@
 				79DAE06124559DDB000F85EF /* Mesh */,
 			);
 			name = Scene;
-			sourceTree = "<group>";
-		};
-		79DAE0A224576D3F000F85EF /* Resourses */ = {
-			isa = PBXGroup;
-			children = (
-				79DAE0762455B7DF000F85EF /* teapot.obj */,
-			);
-			name = Resourses;
 			sourceTree = "<group>";
 		};
 		79DAE0A324576D91000F85EF /* Actors */ = {
@@ -272,6 +277,7 @@
 		79F552AF244E31C000BC9E96 /* MetalExperiments Shared */ = {
 			isa = PBXGroup;
 			children = (
+				79FC9DA924675BDF00ADAEB3 /* assets */,
 				79DAE05A24546408000F85EF /* __trash */,
 				79F552B4244E31C300BC9E96 /* Assets.xcassets */,
 				79DAE0A024576CF2000F85EF /* Renderer */,
@@ -334,6 +340,17 @@
 			);
 			path = "MetalExperiments macOS";
 			sourceTree = "<group>";
+		};
+		79FC9DA924675BDF00ADAEB3 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				79FC9DD52469EB4200ADAEB3 /* Image.tga */,
+				79FC9DAE2467740600ADAEB3 /* teapot.obj */,
+				79FC9DAA24675BDF00ADAEB3 /* brick.jpg */,
+				79FC9DD9246A098100ADAEB3 /* utc32.tga */,
+			);
+			path = assets;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -434,10 +451,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79DAE0772455B7DF000F85EF /* teapot.obj in Resources */,
+				79FC9DD62469EB4200ADAEB3 /* Image.tga in Resources */,
 				79F552C4244E31C300BC9E96 /* Main.storyboard in Resources */,
 				79F552F8244E31C300BC9E96 /* Assets.xcassets in Resources */,
 				79F552C7244E31C300BC9E96 /* LaunchScreen.storyboard in Resources */,
+				79FC9DDA246A098100ADAEB3 /* utc32.tga in Resources */,
+				79FC9DAB24675BDF00ADAEB3 /* brick.jpg in Resources */,
+				79FC9DAF2467740600ADAEB3 /* teapot.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,10 +465,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79DAE0782455B7DF000F85EF /* teapot.obj in Resources */,
+				79FC9DD72469EB4200ADAEB3 /* Image.tga in Resources */,
 				79F552D9244E31C300BC9E96 /* Main.storyboard in Resources */,
 				79F552F9244E31C300BC9E96 /* Assets.xcassets in Resources */,
 				79F552DC244E31C300BC9E96 /* LaunchScreen.storyboard in Resources */,
+				79FC9DDB246A098100ADAEB3 /* utc32.tga in Resources */,
+				79FC9DAC24675BDF00ADAEB3 /* brick.jpg in Resources */,
+				79FC9DB02467740600ADAEB3 /* teapot.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,9 +479,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79FC9DDC246A098100ADAEB3 /* utc32.tga in Resources */,
+				79FC9DB12467740600ADAEB3 /* teapot.obj in Resources */,
 				79F552FA244E31C300BC9E96 /* Assets.xcassets in Resources */,
 				79F552EE244E31C300BC9E96 /* Main.storyboard in Resources */,
-				79DAE0792455B7DF000F85EF /* teapot.obj in Resources */,
+				79FC9DAD24675BDF00ADAEB3 /* brick.jpg in Resources */,
+				79FC9DD82469EB4200ADAEB3 /* Image.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +498,7 @@
 				79DAE095245768A6000F85EF /* WLScene.m in Sources */,
 				79DAE06E2455ABE8000F85EF /* WLActor.m in Sources */,
 				79DAE0A624576DAB000F85EF /* WLTeapot.m in Sources */,
+				79FC9DB42467744F00ADAEB3 /* WLImage.m in Sources */,
 				79DAE09E24576CE8000F85EF /* WLMath.c in Sources */,
 				79DAE0692455A494000F85EF /* WLUtils.m in Sources */,
 				79F552F2244E31C300BC9E96 /* Renderer.m in Sources */,
@@ -486,7 +513,6 @@
 				79F552BE244E31C300BC9E96 /* AppDelegate.m in Sources */,
 				79DAE0C7245AD351000F85EF /* WLRenderView.m in Sources */,
 				79F552F5244E31C300BC9E96 /* Shaders.metal in Sources */,
-				79DAE06424559DF5000F85EF /* WLCubeMesh.m in Sources */,
 				79DAE057245463C8000F85EF /* WLRenderer.m in Sources */,
 				79DAE07C2455C50E000F85EF /* WLResourceMesh.m in Sources */,
 			);
@@ -506,13 +532,13 @@
 				79F552D6244E31C300BC9E96 /* GameViewController.m in Sources */,
 				79F552DF244E31C300BC9E96 /* main.m in Sources */,
 				79DAE0B92458C379000F85EF /* WLPlane.m in Sources */,
+				79FC9DB52467744F00ADAEB3 /* WLImage.m in Sources */,
 				79DAE0742455B0EC000F85EF /* WLCamera.m in Sources */,
 				79DAE0AD24576F05000F85EF /* MBEOBJGroup.mm in Sources */,
 				79DAE0BB2458C392000F85EF /* WLPlaneMesh.m in Sources */,
 				79DAE05F2454DF87000F85EF /* WLMesh.m in Sources */,
 				79F552D3244E31C300BC9E96 /* AppDelegate.m in Sources */,
 				79F552F6244E31C300BC9E96 /* Shaders.metal in Sources */,
-				79DAE06524559DF5000F85EF /* WLCubeMesh.m in Sources */,
 				79DAE058245463C8000F85EF /* WLRenderer.m in Sources */,
 				79DAE07D2455C50E000F85EF /* WLResourceMesh.m in Sources */,
 			);
@@ -525,9 +551,9 @@
 				79DAE0702455ABE8000F85EF /* WLActor.m in Sources */,
 				79DAE06B2455A494000F85EF /* WLUtils.m in Sources */,
 				79DAE0BA2458C379000F85EF /* WLPlane.m in Sources */,
+				79FC9DB62467744F00ADAEB3 /* WLImage.m in Sources */,
 				79F552F4244E31C300BC9E96 /* Renderer.m in Sources */,
 				79DAE0602454DF87000F85EF /* WLMesh.m in Sources */,
-				79DAE06624559DF5000F85EF /* WLCubeMesh.m in Sources */,
 				79DAE0A824576DAB000F85EF /* WLTeapot.m in Sources */,
 				79DAE059245463C8000F85EF /* WLRenderer.m in Sources */,
 				79DAE0BC2458C392000F85EF /* WLPlaneMesh.m in Sources */,

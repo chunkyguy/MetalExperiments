@@ -58,6 +58,11 @@
         translate.z = -12.0f;
         break;
 
+      case WLPlaneDirectionFront:
+        translate.z = -2.0f;
+        axisAngle.z = 1.0f;
+        break;
+
       default:
         break;
     }

@@ -15,7 +15,7 @@ struct FaceVertex
         vi(0), ti(0), ni(0)
     {
     }
-    
+
     uint16_t vi, ti, ni;
 };
 
@@ -95,18 +95,18 @@ static bool operator <(const FaceVertex &v0, const FaceVertex &v1)
     {
         return;
     }
-    
+
     NSScanner *scanner = [NSScanner scannerWithString:contents];
-    
+
     NSCharacterSet *skipSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     NSCharacterSet *consumeSet = [skipSet invertedSet];
-    
+
     scanner.charactersToBeSkipped = skipSet;
-    
+
     NSCharacterSet *endlineCharacters = [NSCharacterSet newlineCharacterSet];
-    
+
     [self beginGroupWithName:@"(unnamed)"];
-    
+
     while (![scanner isAtEnd])
     {
         NSString *token = nil;
@@ -114,14 +114,14 @@ static bool operator <(const FaceVertex &v0, const FaceVertex &v1)
         {
             break;
         }
-        
+
         if ([token isEqualToString:@"v"])
         {
             float x, y, z;
             [scanner scanFloat:&x];
             [scanner scanFloat:&y];
             [scanner scanFloat:&z];
-            
+
             vector_float4 v = { x, y, z, 1 };
             vertices.push_back(v);
         }
@@ -130,7 +130,7 @@ static bool operator <(const FaceVertex &v0, const FaceVertex &v1)
             float u = 0, v = 0;
             [scanner scanFloat:&u];
             [scanner scanFloat:&v];
-            
+
             vector_float2 vt = { u, v };
             texCoords.push_back(vt);
         }
@@ -140,7 +140,7 @@ static bool operator <(const FaceVertex &v0, const FaceVertex &v1)
             [scanner scanFloat:&nx];
             [scanner scanFloat:&ny];
             [scanner scanFloat:&nz];
-            
+
             vector_float3 vn = { nx, ny, nz };
             normals.push_back(vn);
         }
@@ -148,7 +148,7 @@ static bool operator <(const FaceVertex &v0, const FaceVertex &v1)
         {
             std::vector<FaceVertex> faceVertices;
             faceVertices.reserve(4);
-            
+
             while (1)
             {
                 int32_t vi = 0, ti = 0, ni = 0;
@@ -160,26 +160,26 @@ static bool operator <(const FaceVertex &v0, const FaceVertex &v1)
                 if ([scanner scanString:@"/" intoString:NULL])
                 {
                     [scanner scanInt:&ti];
-                    
+
                     if ([scanner scanString:@"/" intoString:NULL])
                     {
                         [scanner scanInt:&ni];
                     }
                 }
-                
+
                 FaceVertex faceVertex;
-                
+
                 // OBJ format allows relative vertex references in the form of negative indices, and
                 // dictates that indices are 1-based. Below, we simultaneously fix up negative indices
                 // and offset everything by -1 to allow 0-based indexing later on.
-                
+
                 faceVertex.vi = (vi < 0) ? (vertices.size() + vi - 1) : (vi - 1);
                 faceVertex.ti = (ti < 0) ? (texCoords.size() + ti - 1) : (ti - 1);
                 faceVertex.ni = (ni < 0) ? (vertices.size() + ni - 1) : (ni - 1);
 
                 faceVertices.push_back(faceVertex);
             }
-            
+
             [self addFaceWithFaceVertices:faceVertices];
         }
         else if ([token isEqualToString:@"g"])
@@ -191,14 +191,14 @@ static bool operator <(const FaceVertex &v0, const FaceVertex &v1)
             }
         }
     }
-    
+
     [self endCurrentGroup];
 }
 
 - (void)beginGroupWithName:(NSString *)name
 {
     [self endCurrentGroup];
-    
+
     MBEOBJGroup *newGroup = [[MBEOBJGroup alloc] initWithName:name];
     [self.mutableGroups addObject:newGroup];
     self.currentGroup = newGroup;
@@ -210,12 +210,12 @@ static bool operator <(const FaceVertex &v0, const FaceVertex &v1)
     {
         return;
     }
-    
+
     if (self.shouldGenerateNormals)
     {
         [self generateNormalsForCurrentGroup];
     }
-    
+
     // Once we've read a complete group, we copy the packed vertices that have been referenced by the group
     // into the current group object. Because it's fairly uncommon to have cross-group shared vertices, this
     // essentially divides up the vertices into disjoint sets by group.
@@ -236,7 +236,7 @@ static bool operator <(const FaceVertex &v0, const FaceVertex &v1)
 - (void)generateNormalsForCurrentGroup
 {
     static const vector_float3 ZERO = { 0, 0, 0 };
-    
+
     size_t i;
     size_t vertexCount = groupVertices.size();
     for (i = 0; i < vertexCount; ++i)
@@ -250,15 +250,15 @@ static bool operator <(const FaceVertex &v0, const FaceVertex &v1)
         uint16_t i0 = groupIndices[i];
         uint16_t i1 = groupIndices[i + 1];
         uint16_t i2 = groupIndices[i + 2];
-        
+
         WLVertex *v0 = &groupVertices[i0];
         WLVertex *v1 = &groupVertices[i1];
         WLVertex *v2 = &groupVertices[i2];
-        
+
         vector_float3 p0 = v0->position.xyz;
         vector_float3 p1 = v1->position.xyz;
         vector_float3 p2 = v2->position.xyz;
-        
+
         vector_float3 cross = vector_cross((p1 - p0), (p2 - p0));
         vector_float3 cross4 = { cross.x, cross.y, cross.z };
 
@@ -290,7 +290,7 @@ static bool operator <(const FaceVertex &v0, const FaceVertex &v1)
 //    static const vector_float2 ZERO2 = { 0, 0 };
 //    static const vector_float4 RGBA_WHITE = { 1, 1, 1, 1 };
     static const uint16_t INVALID_INDEX = 0xffff;
-    
+
     uint16_t groupIndex;
     auto it = vertexToGroupIndexMap.find(fv);
     if (it != vertexToGroupIndexMap.end())
@@ -303,13 +303,13 @@ static bool operator <(const FaceVertex &v0, const FaceVertex &v1)
         vertex.position = vertices[fv.vi];
         vertex.normal = (fv.ni != INVALID_INDEX) ? normals[fv.ni] : UP;
 //        vertex.diffuseColor = RGBA_WHITE;
-//        vertex.texCoords = (fv.ti != INVALID_INDEX) ? texCoords[fv.ti] : ZERO2;
+        vertex.texCoord = (fv.ti != INVALID_INDEX) ? texCoords[fv.ti] : simd_make_float2_undef(0.0f);
 
         groupVertices.push_back(vertex);
         groupIndex = groupVertices.size() - 1;
         vertexToGroupIndexMap[fv] = groupIndex;
     }
-    
+
     groupIndices.push_back(groupIndex);
 }
 
