@@ -70,7 +70,7 @@ const WLRendererConfig gConfig = {
 
 - (void)loadTexture
 {
-  NSURL *loc = [[NSBundle mainBundle] URLForResource:@"brick" withExtension:@"jpg"];
+  NSURL *loc = [[NSBundle mainBundle] URLForResource:@"brick1" withExtension:@"jpg"];
   MTKTextureLoader *loader = [[MTKTextureLoader alloc] initWithDevice:_device];
   _texture = [loader newTextureWithContentsOfURL:loc options:nil error:nil];
 }

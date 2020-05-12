@@ -41,7 +41,7 @@ static CVReturn callback(CVDisplayLinkRef CV_NONNULL displayLink,
   
   _view = (WLRenderView *)self.view;
   [_view setUp];
-
+  
   CVDisplayLinkCreateWithActiveCGDisplays(&_displayLink);
   CVDisplayLinkSetOutputCallback(_displayLink, callback, (__bridge void * _Nullable)(_view));
 }

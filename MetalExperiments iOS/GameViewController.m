@@ -19,17 +19,17 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-
+  
   _view = (WLRenderView *)self.view;
   [_view setUp];
-
+  
   _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(tick)];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
   [super viewDidAppear:animated];
-[_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+  [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
