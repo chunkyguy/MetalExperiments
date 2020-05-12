@@ -4,6 +4,7 @@
 // 
 
 #import "WLActor.h"
+#import <MetalKit/MTKTextureLoader.h>
 #import "WLUtils.h"
 #import "WLTypes.h"
 #import "WLMath.h"
@@ -11,6 +12,8 @@
 @interface WLActor ()
 {
   id<MTLBuffer> _uniforms;
+  id<MTLTexture> _texture;
+  MTKTextureLoader *_texLoader;
 }
 @end
 
@@ -22,8 +25,17 @@
   if (self) {
     _uniforms = [device newBufferWithLength:sizeof(WLUniforms)
                                      options:MTLResourceOptionCPUCacheModeDefault];
+    _texLoader = [[MTKTextureLoader alloc] initWithDevice:device];
+
   }
   return self;;
+}
+
+- (void)setTextureName:(NSString *)textureName
+{
+  NSArray *comps = [textureName componentsSeparatedByString:@"."];
+  NSURL *loc = [[NSBundle mainBundle] URLForResource:[comps firstObject] withExtension:[comps lastObject]];
+  _texture = [_texLoader newTextureWithContentsOfURL:loc options:nil error:nil];
 }
 
 - (void)update:(float)dt
@@ -54,6 +66,7 @@
 
   [command setVertexBuffer:_uniforms offset:0 atIndex:1];
   [command setFragmentBuffer:_uniforms offset:0 atIndex:0];
+  [command setFragmentTexture:_texture atIndex:0];
 
   // set actor position info
   [self.mesh render:command];

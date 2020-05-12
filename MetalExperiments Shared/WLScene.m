@@ -11,7 +11,7 @@
 
 @interface WLScene ()
 {
-  NSMutableArray *_actors;
+  NSArray *_actors;
   WLCamera *_camera;
 }
 @end
@@ -21,7 +21,7 @@
 {
   self = [super init];
   if (self) {
-    _actors = [NSMutableArray array];
+    _actors = [NSArray array];
     _camera = [WLCamera camera];
   }
   return self;
@@ -29,11 +29,14 @@
 
 - (void)setUp:(id<MTLDevice>)device
 {
-  [_actors addObject:[[WLPlane alloc] initWithDevice:device
-                                           direction:WLPlaneDirectionBottom]];
+  WLPlane *floor = [[WLPlane alloc] initWithDevice:device
+                        direction:WLPlaneDirectionBottom];
+  floor.textureName = @"brick1.jpg";
 
-  [_actors addObject:[[WLTeapot alloc] initWithDevice:device
-                                             position:(simd_float3){ 0.0f, 0.0f, 0.0f }]];
+  WLTeapot *teapot = [[WLTeapot alloc] initWithDevice:device
+                                             position:(simd_float3){ 0.0f, 0.0f, 0.0f }];
+  teapot.textureName = @"utc32.tga";
+  _actors = @[floor, teapot];
 }
 
 - (void)update:(float)dt event:(WLKeyEvent)event

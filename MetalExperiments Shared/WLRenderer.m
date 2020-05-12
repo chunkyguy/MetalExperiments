@@ -4,7 +4,6 @@
 // 
 
 #import "WLRenderer.h"
-#import <MetalKit/MTKTextureLoader.h>
 #import "WLTypes.h"
 #import "WLMath.h"
 #import "WLMesh.h"
@@ -25,8 +24,6 @@ const WLRendererConfig gConfig = {
   id<MTLDepthStencilState> _depth;
   id<MTLCommandQueue> _cmdQueue;
   id<MTLTexture> _depthTexture;
-
-  id<MTLTexture> _texture;
 }
 @end
 
@@ -64,15 +61,6 @@ const WLRendererConfig gConfig = {
   _depth = [_device newDepthStencilStateWithDescriptor:depthDesc];
 
   _cmdQueue = [_device newCommandQueue];
-
-  [self loadTexture];
-}
-
-- (void)loadTexture
-{
-  NSURL *loc = [[NSBundle mainBundle] URLForResource:@"brick1" withExtension:@"jpg"];
-  MTKTextureLoader *loader = [[MTKTextureLoader alloc] initWithDevice:_device];
-  _texture = [loader newTextureWithContentsOfURL:loc options:nil error:nil];
 }
 
 - (void)resize:(CGSize)size
@@ -96,7 +84,6 @@ const WLRendererConfig gConfig = {
   id<MTLRenderCommandEncoder> command = [self renderCommandWithTexture:texture
                                                             loadAction:MTLLoadActionClear
                                                                 cmdBuf:cmdBuf];
-  [command setFragmentTexture:_texture atIndex:0];
   for (NSInteger i = 0; i < scene.actors.count; ++i) {
     [[scene.actors objectAtIndex:i] render:command
                                     camera:scene.camera];

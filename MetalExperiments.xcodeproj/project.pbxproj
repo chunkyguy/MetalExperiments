@@ -209,9 +209,9 @@
 		79FC9EAE246B426D00ADAEB3 /* me_textile.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9E17246B426D00ADAEB3 /* me_textile.png */; };
 		79FC9EAF246B426D00ADAEB3 /* me_textile.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9E17246B426D00ADAEB3 /* me_textile.png */; };
 		79FC9EB0246B426D00ADAEB3 /* me_textile.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9E17246B426D00ADAEB3 /* me_textile.png */; };
-		79FC9EB1246B426D00ADAEB3 /* Image.tga in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9E18246B426D00ADAEB3 /* Image.tga */; };
-		79FC9EB2246B426D00ADAEB3 /* Image.tga in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9E18246B426D00ADAEB3 /* Image.tga */; };
-		79FC9EB3246B426D00ADAEB3 /* Image.tga in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9E18246B426D00ADAEB3 /* Image.tga */; };
+		79FC9EB1246B426D00ADAEB3 /* image.tga in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9E18246B426D00ADAEB3 /* image.tga */; };
+		79FC9EB2246B426D00ADAEB3 /* image.tga in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9E18246B426D00ADAEB3 /* image.tga */; };
+		79FC9EB3246B426D00ADAEB3 /* image.tga in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9E18246B426D00ADAEB3 /* image.tga */; };
 		79FC9EB4246B426D00ADAEB3 /* moss.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9E19246B426D00ADAEB3 /* moss.png */; };
 		79FC9EB5246B426D00ADAEB3 /* moss.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9E19246B426D00ADAEB3 /* moss.png */; };
 		79FC9EB6246B426D00ADAEB3 /* moss.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC9E19246B426D00ADAEB3 /* moss.png */; };
@@ -333,7 +333,7 @@
 		79FC9E15246B426D00ADAEB3 /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
 		79FC9E16246B426D00ADAEB3 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		79FC9E17246B426D00ADAEB3 /* me_textile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me_textile.png; sourceTree = "<group>"; };
-		79FC9E18246B426D00ADAEB3 /* Image.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = Image.tga; sourceTree = "<group>"; };
+		79FC9E18246B426D00ADAEB3 /* image.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = image.tga; sourceTree = "<group>"; };
 		79FC9E19246B426D00ADAEB3 /* moss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moss.png; sourceTree = "<group>"; };
 		79FC9E1B246B426D00ADAEB3 /* spot_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spot_texture.png; sourceTree = "<group>"; };
 		79FC9E1C246B426D00ADAEB3 /* spot_triangulated.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spot_triangulated.obj; sourceTree = "<group>"; };
@@ -554,7 +554,7 @@
 				79FC9E15246B426D00ADAEB3 /* smoke.png */,
 				79FC9E16246B426D00ADAEB3 /* star.png */,
 				79FC9E17246B426D00ADAEB3 /* me_textile.png */,
-				79FC9E18246B426D00ADAEB3 /* Image.tga */,
+				79FC9E18246B426D00ADAEB3 /* image.tga */,
 				79FC9E19246B426D00ADAEB3 /* moss.png */,
 			);
 			path = texture;
@@ -762,7 +762,7 @@
 				79FC9E8D246B426D00ADAEB3 /* pisa_negx.hdr in Resources */,
 				79FC9E45246B426D00ADAEB3 /* hardwood2_diffuse.jpg in Resources */,
 				79FC9E33246B426D00ADAEB3 /* mybrick-height.png in Resources */,
-				79FC9EB1246B426D00ADAEB3 /* Image.tga in Resources */,
+				79FC9EB1246B426D00ADAEB3 /* image.tga in Resources */,
 				79FC9E57246B426D00ADAEB3 /* grace_negx.hdr in Resources */,
 				79FC9E3C246B426D00ADAEB3 /* fire.png in Resources */,
 				79FC9E42246B426D00ADAEB3 /* ogre_normalmap.png in Resources */,
@@ -822,7 +822,7 @@
 				79FC9E8E246B426D00ADAEB3 /* pisa_negx.hdr in Resources */,
 				79FC9E46246B426D00ADAEB3 /* hardwood2_diffuse.jpg in Resources */,
 				79FC9E34246B426D00ADAEB3 /* mybrick-height.png in Resources */,
-				79FC9EB2246B426D00ADAEB3 /* Image.tga in Resources */,
+				79FC9EB2246B426D00ADAEB3 /* image.tga in Resources */,
 				79FC9E58246B426D00ADAEB3 /* grace_negx.hdr in Resources */,
 				79FC9E3D246B426D00ADAEB3 /* fire.png in Resources */,
 				79FC9E43246B426D00ADAEB3 /* ogre_normalmap.png in Resources */,
@@ -903,7 +903,7 @@
 				79FC9EB0246B426D00ADAEB3 /* me_textile.png in Resources */,
 				79FC9EA4246B426D00ADAEB3 /* utc32.tga in Resources */,
 				79F552FA244E31C300BC9E96 /* Assets.xcassets in Resources */,
-				79FC9EB3246B426D00ADAEB3 /* Image.tga in Resources */,
+				79FC9EB3246B426D00ADAEB3 /* image.tga in Resources */,
 				79FC9EBC246B426D00ADAEB3 /* spot_triangulated.obj in Resources */,
 				79F552EE244E31C300BC9E96 /* Main.storyboard in Resources */,
 				79FC9E89246B426D00ADAEB3 /* pisa_posy.hdr in Resources */,
