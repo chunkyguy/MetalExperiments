@@ -4,6 +4,7 @@
 // 
 
 #import "WLRenderer.h"
+#import <MetalKit/MTKTextureLoader.h>
 #import "WLTypes.h"
 #import "WLMath.h"
 #import "WLMesh.h"
@@ -69,17 +70,9 @@ const WLRendererConfig gConfig = {
 
 - (void)loadTexture
 {
-  NSURL *loc = [[NSBundle mainBundle] URLForResource:@"utc32" withExtension:@"tga"];
-  WLImage *image = [[WLImage alloc] initWithLocation:loc];
-  MTLTextureDescriptor *texDesc = [MTLTextureDescriptor
-                                   texture2DDescriptorWithPixelFormat:MTLPixelFormatBGRA8Unorm
-                                   width:image.width
-                                   height:image.height
-                                   mipmapped:NO];
-  _texture = [_device newTextureWithDescriptor:texDesc];
-  NSUInteger bytesPerRow = image.width * 4;
-  MTLRegion region = MTLRegionMake2D(0, 0, image.width, image.height);
-  [_texture replaceRegion:region mipmapLevel:0 withBytes:image.data.bytes bytesPerRow:bytesPerRow];
+  NSURL *loc = [[NSBundle mainBundle] URLForResource:@"brick" withExtension:@"jpg"];
+  MTKTextureLoader *loader = [[MTKTextureLoader alloc] initWithDevice:_device];
+  _texture = [loader newTextureWithContentsOfURL:loc options:nil error:nil];
 }
 
 - (void)resize:(CGSize)size
