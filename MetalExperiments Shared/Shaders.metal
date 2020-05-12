@@ -76,10 +76,18 @@ vertex FragVertex vert_main(
   return out;
 }
 
-fragment float4 frag_main(FragVertex vert [[stage_in]], texture2d<half> texture [[ texture(0) ]])
+fragment float4 frag_main(FragVertex vert [[stage_in]], texture2d<half> tex0 [[ texture(0) ]], texture2d<half> tex1 [[ texture(1) ]])
 {
   float4 lightColor = float4(getColor(vert.wPos, vert.wNormal, gLight), 1.0f);
+
   constexpr sampler smplr {mag_filter::linear, min_filter::linear};
-  float4 textureColor = float4(texture.sample(smplr, vert.texCoord));
-  return lightColor + textureColor;
+
+  float4 texColor = float4(tex0.sample(smplr, vert.texCoord));
+  float4 map = float4(tex1.sample(smplr, vert.texCoord));
+
+  if (map.a < 0.15f) {
+    discard_fragment();
+  } else {
+    return lightColor + texColor;
+  }
 }

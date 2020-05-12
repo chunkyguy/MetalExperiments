@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)render:(id<MTLRenderCommandEncoder>)command
         camera:(WLCamera *)camera;
 
-@property (nonatomic, copy) NSString *textureName;
+@property (nonatomic, copy) NSArray *textureNames;
 @property (nonatomic) matrix_float4x4 modelMatrix;
 @property (nonatomic, readonly) WLMesh *mesh;
 @end

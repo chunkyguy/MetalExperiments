@@ -31,11 +31,11 @@
 {
   WLPlane *floor = [[WLPlane alloc] initWithDevice:device
                         direction:WLPlaneDirectionBottom];
-  floor.textureName = @"brick1.jpg";
+  floor.textureNames = @[@"brick1.jpg"];
 
   WLTeapot *teapot = [[WLTeapot alloc] initWithDevice:device
                                              position:(simd_float3){ 0.0f, 0.0f, 0.0f }];
-  teapot.textureName = @"utc32.tga";
+  teapot.textureNames = @[@"cement.jpg", @"moss.png"];
   _actors = @[floor, teapot];
 }
 

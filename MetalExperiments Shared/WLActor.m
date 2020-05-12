@@ -12,7 +12,7 @@
 @interface WLActor ()
 {
   id<MTLBuffer> _uniforms;
-  id<MTLTexture> _texture;
+  NSMutableArray *_textures;
   MTKTextureLoader *_texLoader;
 }
 @end
@@ -26,16 +26,19 @@
     _uniforms = [device newBufferWithLength:sizeof(WLUniforms)
                                      options:MTLResourceOptionCPUCacheModeDefault];
     _texLoader = [[MTKTextureLoader alloc] initWithDevice:device];
+    _textures = [NSMutableArray array];
 
   }
   return self;;
 }
 
-- (void)setTextureName:(NSString *)textureName
+- (void)setTextureNames:(NSArray *)textureNames
 {
-  NSArray *comps = [textureName componentsSeparatedByString:@"."];
-  NSURL *loc = [[NSBundle mainBundle] URLForResource:[comps firstObject] withExtension:[comps lastObject]];
-  _texture = [_texLoader newTextureWithContentsOfURL:loc options:nil error:nil];
+  for (NSString *textureName in textureNames) {
+    NSArray *comps = [textureName componentsSeparatedByString:@"."];
+    NSURL *loc = [[NSBundle mainBundle] URLForResource:[comps firstObject] withExtension:[comps lastObject]];
+    [_textures addObject:[_texLoader newTextureWithContentsOfURL:loc options:nil error:nil]];
+  }
 }
 
 - (void)update:(float)dt
@@ -66,7 +69,9 @@
 
   [command setVertexBuffer:_uniforms offset:0 atIndex:1];
   [command setFragmentBuffer:_uniforms offset:0 atIndex:0];
-  [command setFragmentTexture:_texture atIndex:0];
+  for (NSInteger texIndex = 0; texIndex < [_textures count]; ++texIndex) {
+    [command setFragmentTexture:[_textures objectAtIndex:texIndex] atIndex:texIndex];
+  }
 
   // set actor position info
   [self.mesh render:command];
