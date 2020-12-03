@@ -1,14 +1,13 @@
 //
 // Created by Sidharth Juyal on 20/04/2020.
 // Copyright © 2020 whackylabs. All rights reserved.
-// 
+//
 
 #import "GameViewController.h"
 #import "Renderer.h"
 #import "WLRenderView.h"
 
-@interface GameViewController ()
-{
+@interface GameViewController () {
   WLRenderView *_view;
   CADisplayLink *_displayLink;
 }
@@ -19,10 +18,10 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
+
   _view = (WLRenderView *)self.view;
   [_view setUp];
-  
+
   _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(tick)];
 }
 

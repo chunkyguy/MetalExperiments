@@ -1,23 +1,22 @@
 //
 // Created by Sidharth Juyal on 25/04/2020.
 // Copyright © 2020 whackylabs. All rights reserved.
-// 
+//
 
 #import "WLRenderer.h"
-#import "WLTypes.h"
+#import "WLActor.h"
+#import "WLCamera.h"
+#import "WLImage.h"
 #import "WLMath.h"
 #import "WLMesh.h"
-#import "WLCamera.h"
-#import "WLActor.h"
-#import "WLImage.h"
+#import "WLTypes.h"
 
 const WLRendererConfig gConfig = {
   .pixelFormat = MTLPixelFormatBGRA8Unorm,
   .depthFormat = MTLPixelFormatDepth32Float,
 };
 
-@interface WLRenderer ()
-{
+@interface WLRenderer () {
   id<MTLDevice> _device;
   id<MTLLibrary> _lib;
   id<MTLRenderPipelineState> _pipeline;
@@ -40,7 +39,8 @@ const WLRendererConfig gConfig = {
 
 - (id<MTLDevice>)device
 {
-  return _device;;
+  return _device;
+  ;
 }
 
 - (void)setUp
@@ -66,15 +66,14 @@ const WLRendererConfig gConfig = {
 - (void)resize:(CGSize)size
 {
   MTLTextureDescriptor *depthTexDesc = [MTLTextureDescriptor
-                                        texture2DDescriptorWithPixelFormat:gConfig.depthFormat
-                                        width:size.width
-                                        height:size.height
-                                        mipmapped:NO];
+    texture2DDescriptorWithPixelFormat:gConfig.depthFormat
+                                 width:size.width
+                                height:size.height
+                             mipmapped:NO];
   depthTexDesc.usage = MTLTextureUsageRenderTarget;
   depthTexDesc.storageMode = MTLStorageModePrivate;
   _depthTexture = [_device newTextureWithDescriptor:depthTexDesc];
 }
-
 
 - (void)renderScene:(WLScene *)scene
             texture:(id<MTLTexture>)texture
@@ -96,7 +95,7 @@ const WLRendererConfig gConfig = {
 }
 
 - (id<MTLRenderCommandEncoder>)renderCommandWithTexture:(id<MTLTexture>)texture
-                                               loadAction:(MTLLoadAction)loadAction
+                                             loadAction:(MTLLoadAction)loadAction
                                                  cmdBuf:(id<MTLCommandBuffer>)cmdBuf
 {
   MTLRenderPassDescriptor *passDesc = [MTLRenderPassDescriptor renderPassDescriptor];
@@ -113,7 +112,7 @@ const WLRendererConfig gConfig = {
   [command setRenderPipelineState:_pipeline];
   [command setDepthStencilState:_depth];
   [command setFrontFacingWinding:MTLWindingCounterClockwise];
-//  [command setCullMode:MTLCullModeBack];
+  //  [command setCullMode:MTLCullModeBack];
 
   return command;
 }

@@ -1,11 +1,11 @@
 //
 // Created by Sidharth Juyal on 26/04/2020.
 // Copyright © 2020 whackylabs. All rights reserved.
-// 
+//
 
+#import "WLTypes.h"
 #import <Foundation/Foundation.h>
 #import <simd/simd.h>
-#import "WLTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

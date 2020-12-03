@@ -1,13 +1,12 @@
 //
 // Created by Sidharth Juyal on 25/04/2020.
 // Copyright © 2020 whackylabs. All rights reserved.
-// 
+//
 
 #import "WLMesh.h"
 #import "WLUtils.h"
 
-@interface WLMesh ()
-{
+@interface WLMesh () {
   id<MTLDevice> _device;
 }
 @end
@@ -21,7 +20,6 @@
   }
   return self;
 }
-
 
 - (void)render:(id<MTLRenderCommandEncoder>)command
 {

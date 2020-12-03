@@ -1,7 +1,7 @@
 //
 // Created by Sidharth Juyal on 12/05/2020.
 // Copyright © 2020 whackylabs. All rights reserved.
-// 
+//
 
 #ifndef WLShaderTypes_h
 #define WLShaderTypes_h

@@ -1,7 +1,7 @@
 //
 // Created by Sidharth Juyal on 24/04/2020.
 // Copyright © 2020 whackylabs. All rights reserved.
-// 
+//
 
 #ifndef WLMath_h
 #define WLMath_h
@@ -22,6 +22,5 @@ matrix_float4x4 wl_perspective(float fovyRadians, float aspect, float nearZ, flo
 matrix_float3x3 wl_convert(matrix_float4x4 m);
 
 float wlRegionClam(float value, float min, float max);
-
 
 #endif /* WLMath_h */

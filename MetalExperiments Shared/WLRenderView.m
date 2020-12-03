@@ -1,7 +1,7 @@
 //
 // Created by Sidharth Juyal on 20/04/2020.
 // Copyright © 2020 whackylabs. All rights reserved.
-// 
+//
 
 #import "WLRenderView.h"
 
@@ -13,8 +13,7 @@
 #import "WLRenderer.h"
 #import "WLScene.h"
 
-@interface WLRenderView ()
-{
+@interface WLRenderView () {
   CAMetalLayer *_metalLayer;
   WLRenderer *_renderer;
   WLScene *_scene;
@@ -53,11 +52,20 @@
 - (void)keyDown:(NSEvent *)event
 {
   switch (event.keyCode) {
-    case 123: _event = WLKeyEventLeft; break;
-    case 124: _event = WLKeyEventRight; break;
-    case 125: _event = WLKeyEventDown; break;
-    case 126: _event = WLKeyEventUp; break;
-    default: break;
+  case 123:
+    _event = WLKeyEventLeft;
+    break;
+  case 124:
+    _event = WLKeyEventRight;
+    break;
+  case 125:
+    _event = WLKeyEventDown;
+    break;
+  case 126:
+    _event = WLKeyEventUp;
+    break;
+  default:
+    break;
   }
 }
 

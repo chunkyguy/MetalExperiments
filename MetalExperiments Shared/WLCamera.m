@@ -1,13 +1,12 @@
 //
 // Created by Sidharth Juyal on 26/04/2020.
 // Copyright © 2020 whackylabs. All rights reserved.
-// 
+//
 
 #import "WLCamera.h"
 #import "WLMath.h"
 
-@interface WLCamera ()
-{
+@interface WLCamera () {
   matrix_float4x4 _projMatrix;
   simd_float2 _camRotation;
 }
@@ -27,10 +26,9 @@
     _camRotation.x = 0.0f;
     _camRotation.y = 0.0f;
 
-    float fov = (2.0f * M_PI)/5.0f;
+    float fov = (2.0f * M_PI) / 5.0f;
     float aspect = 1.0f;
     _projMatrix = wl_perspective(fov, aspect, 1.0f, 100.0f);
-    
   }
   return self;
 }
@@ -53,11 +51,20 @@
   float offset = 0.01f;
 
   switch (event) {
-    case WLKeyEventLeft: _camRotation.y -= offset; break;
-    case WLKeyEventRight: _camRotation.y += offset; break;
-    case WLKeyEventUp: _camRotation.x += offset; break;
-    case WLKeyEventDown: _camRotation.x -= offset; break;
-    default: break;
+  case WLKeyEventLeft:
+    _camRotation.y -= offset;
+    break;
+  case WLKeyEventRight:
+    _camRotation.y += offset;
+    break;
+  case WLKeyEventUp:
+    _camRotation.x += offset;
+    break;
+  case WLKeyEventDown:
+    _camRotation.x -= offset;
+    break;
+  default:
+    break;
   }
   _camRotation.x = wlRegionClam(_camRotation.x, 0.0f, kTau);
   _camRotation.y = wlRegionClam(_camRotation.y, 0.0f, kTau);

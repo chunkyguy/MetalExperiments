@@ -1,12 +1,12 @@
 //
 // Created by Sidharth Juyal on 27/04/2020.
 // Copyright © 2020 whackylabs. All rights reserved.
-// 
+//
 
-#import <Foundation/Foundation.h>
-#import <Metal/Metal.h>
 #import "WLCamera.h"
 #import "WLTypes.h"
+#import <Foundation/Foundation.h>
+#import <Metal/Metal.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

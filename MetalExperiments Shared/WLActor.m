@@ -1,16 +1,15 @@
 //
 // Created by Sidharth Juyal on 26/04/2020.
 // Copyright © 2020 whackylabs. All rights reserved.
-// 
+//
 
 #import "WLActor.h"
-#import <MetalKit/MTKTextureLoader.h>
-#import "WLUtils.h"
-#import "WLTypes.h"
 #import "WLMath.h"
+#import "WLTypes.h"
+#import "WLUtils.h"
+#import <MetalKit/MTKTextureLoader.h>
 
-@interface WLActor ()
-{
+@interface WLActor () {
   id<MTLBuffer> _uniforms;
   NSMutableArray *_textures;
   MTKTextureLoader *_texLoader;
@@ -24,25 +23,27 @@
   self = [super init];
   if (self) {
     _uniforms = [device newBufferWithLength:sizeof(WLUniforms)
-                                     options:MTLResourceOptionCPUCacheModeDefault];
+                                    options:MTLResourceOptionCPUCacheModeDefault];
     _texLoader = [[MTKTextureLoader alloc] initWithDevice:device];
     _textures = [NSMutableArray array];
-
   }
-  return self;;
+  return self;
+  ;
 }
 
 - (void)setTextureNames:(NSArray *)textureNames
 {
   for (NSString *textureName in textureNames) {
     [_textures addObject:[_texLoader
-                          newTextureWithContentsOfURL:[WLUtils resourceNamed:textureName]
-                          options:nil error:nil]];
+                           newTextureWithContentsOfURL:[WLUtils resourceNamed:textureName]
+                                               options:nil
+                                                 error:nil]];
   }
 }
 
 - (void)update:(float)dt
-{}
+{
+}
 
 - (matrix_float4x4)modelMatrix
 {

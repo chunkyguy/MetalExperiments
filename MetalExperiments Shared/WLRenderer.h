@@ -1,12 +1,12 @@
 //
 // Created by Sidharth Juyal on 25/04/2020.
 // Copyright © 2020 whackylabs. All rights reserved.
-// 
+//
 
+#import "WLScene.h"
+#include <CoreGraphics/CoreGraphics.h>
 #import <Foundation/Foundation.h>
 #import <Metal/Metal.h>
-#include <CoreGraphics/CoreGraphics.h>
-#import "WLScene.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
