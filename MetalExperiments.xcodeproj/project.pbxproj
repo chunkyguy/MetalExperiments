@@ -289,7 +289,6 @@
 		79FC9DE2246B426D00ADAEB3 /* bs_ears.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_ears.obj; sourceTree = "<group>"; };
 		79FC9DE3246B426D00ADAEB3 /* pig_triangulated.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pig_triangulated.obj; sourceTree = "<group>"; };
 		79FC9DE4246B426D00ADAEB3 /* building.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = building.obj; sourceTree = "<group>"; };
-		79FC9DE5246B426D00ADAEB3 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		79FC9DE7246B426D00ADAEB3 /* bluewater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluewater.png; sourceTree = "<group>"; };
 		79FC9DE9246B426D00ADAEB3 /* mybrick-height.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mybrick-height.png"; sourceTree = "<group>"; };
 		79FC9DEA246B426D00ADAEB3 /* mybrick-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mybrick-normal.png"; sourceTree = "<group>"; };
@@ -399,12 +398,12 @@
 			isa = PBXGroup;
 			children = (
 				79DAE05B24546440000F85EF /* WLTypes.h */,
+				79FC9DDD246B375F00ADAEB3 /* WLShaderTypes.h */,
 				79F552B3244E31C000BC9E96 /* Shaders.metal */,
 				79DAE055245463C8000F85EF /* WLRenderer.h */,
 				79DAE056245463C8000F85EF /* WLRenderer.m */,
 				79E436AA244E437700DAD61F /* WLRenderView.h */,
 				79E436AB244E437700DAD61F /* WLRenderView.m */,
-				79FC9DDD246B375F00ADAEB3 /* WLShaderTypes.h */,
 			);
 			name = Renderer;
 			sourceTree = "<group>";
@@ -449,8 +448,8 @@
 		79F552AF244E31C000BC9E96 /* MetalExperiments Shared */ = {
 			isa = PBXGroup;
 			children = (
-				79FC9DDE246B426D00ADAEB3 /* assets */,
 				79F552B4244E31C300BC9E96 /* Assets.xcassets */,
+				79FC9DDE246B426D00ADAEB3 /* assets */,
 				79DAE0A024576CF2000F85EF /* Renderer */,
 				79DAE0A124576D0C000F85EF /* Scene */,
 				79DAE09924576C79000F85EF /* Utils */,
@@ -516,7 +515,6 @@
 			isa = PBXGroup;
 			children = (
 				79FC9DDF246B426D00ADAEB3 /* models */,
-				79FC9DE5246B426D00ADAEB3 /* README */,
 				79FC9DE6246B426D00ADAEB3 /* texture */,
 				79FC9E1A246B426D00ADAEB3 /* spot */,
 			);
@@ -689,6 +687,7 @@
 				79F552E0244E31C300BC9E96 /* Sources */,
 				79F552E1244E31C300BC9E96 /* Frameworks */,
 				79F552E2244E31C300BC9E96 /* Resources */,
+				796FE01B25792CF000330924 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -920,6 +919,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		796FE01B25792CF000330924 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nclang-format -i  ${SRCROOT}/**/*.m ${SRCROOT}/**/*.h ${SRCROOT}/**/*.mm ${SRCROOT}/**/*.c\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		79F552B5244E31C300BC9E96 /* Sources */ = {
