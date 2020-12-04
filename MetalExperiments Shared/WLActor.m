@@ -34,10 +34,11 @@
 - (void)setTextureNames:(NSArray *)textureNames
 {
   for (NSString *textureName in textureNames) {
-    [_textures addObject:[_texLoader
-                           newTextureWithContentsOfURL:[WLUtils resourceNamed:textureName]
-                                               options:nil
-                                                 error:nil]];
+    id<MTLTexture> texture = [_texLoader newTextureWithContentsOfURL:[WLUtils resourceNamed:textureName]
+                                                             options:@{ MTKTextureLoaderOptionOrigin : MTKTextureLoaderOriginBottomLeft }
+                                                               error:nil];
+    NSParameterAssert(error == nil);
+    [_textures addObject:texture];
   }
 }
 

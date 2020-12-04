@@ -37,7 +37,7 @@ struct FragVertex {
   float4 position [[position]];
   float4 wPos;
   float3 wNormal;
-  float2 texCoord;
+  float2 texCoords;
 };
 
 float3 getColor(const float4 position, const float3 normal, const Light light)
@@ -61,22 +61,19 @@ float3 getColor(const float4 position, const float3 normal, const Light light)
 vertex FragVertex vert_main(const device WLVertex *vertices [[buffer(0)]], constant WLUniforms &uniforms [[buffer(1)]], uint vid [[vertex_id]]) {
   float4 wPos = uniforms.mvMatrix * vertices[vid].position;
   float3 wNormal = normalize(uniforms.nMatrix * vertices[vid].normal);
-  
   FragVertex out {
     .position = uniforms.mvpMatrix * vertices[vid].position,
     .wPos = wPos,
     .wNormal = wNormal,
-    .texCoord = vertices[vid].texCoord
+    .texCoords = vertices[vid].texCoords
   };
   return out;
 }
 
-fragment float4 frag_main(FragVertex vert [[stage_in]], texture2d<half> tex0 [[ texture(0) ]], texture2d<half> tex1 [[ texture(1) ]])
+fragment float4 frag_main(FragVertex vert [[stage_in]], texture2d<half> tex0 [[ texture(0) ]])
 {
   float4 lightColor = float4(getColor(vert.wPos, vert.wNormal, gLight), 1.0f);
-  
   constexpr sampler smplr {mag_filter::linear, min_filter::linear};
-  
-  float4 texColor = float4(tex0.sample(smplr, vert.texCoord));
+  float4 texColor = float4(tex0.sample(smplr, vert.texCoords));
   return lightColor + texColor;
 }

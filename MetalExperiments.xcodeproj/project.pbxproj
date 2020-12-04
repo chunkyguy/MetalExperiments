@@ -364,6 +364,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		796FE043257934AD00330924 /* Model Loader */ = {
+			isa = PBXGroup;
+			children = (
+				79DAE09A24576C79000F85EF /* MBEOBJGroup.h */,
+				79DAE09D24576C79000F85EF /* MBEOBJGroup.mm */,
+				79DAE09C24576C79000F85EF /* MBEOBJModel.h */,
+				79DAE09B24576C79000F85EF /* MBEOBJModel.mm */,
+			);
+			name = "Model Loader";
+			sourceTree = "<group>";
+		};
 		79DAE06124559DDB000F85EF /* Mesh */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,14 +391,11 @@
 		79DAE09924576C79000F85EF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				796FE043257934AD00330924 /* Model Loader */,
 				79CBED9024524DE300916540 /* WLMath.h */,
 				79CBED9124524DE300916540 /* WLMath.c */,
 				79DAE0672455A494000F85EF /* WLUtils.h */,
 				79DAE0682455A494000F85EF /* WLUtils.m */,
-				79DAE09C24576C79000F85EF /* MBEOBJModel.h */,
-				79DAE09B24576C79000F85EF /* MBEOBJModel.mm */,
-				79DAE09A24576C79000F85EF /* MBEOBJGroup.h */,
-				79DAE09D24576C79000F85EF /* MBEOBJGroup.mm */,
 				79FC9DB22467744F00ADAEB3 /* WLImage.h */,
 				79FC9DB32467744F00ADAEB3 /* WLImage.m */,
 			);

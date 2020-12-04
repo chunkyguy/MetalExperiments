@@ -1,9 +1,18 @@
+//
+//  MBEOBJModel.mm
+//  InstancedDrawing
+//
+//  Created by Warren Moore on 9/11/14.
+//  Copyright (c) 2014 Metal By Example. All rights reserved.
+//
+
 #import "MBEOBJModel.h"
 #import "MBEOBJGroup.h"
-#import "WLTypes.h"
+#import "WLShaderTypes.h"
 
 #include <functional>
 #include <map>
+#import <simd/simd.h>
 #include <vector>
 
 // "Face vertices" are tuples of indices into file-wide lists of positions, normals, and texture coordinates.
@@ -236,11 +245,10 @@ static bool operator<(const FaceVertex &v0, const FaceVertex &v1)
     vector_float3 p2 = v2->position.xyz;
 
     vector_float3 cross = vector_cross((p1 - p0), (p2 - p0));
-    vector_float3 cross4 = { cross.x, cross.y, cross.z };
 
-    v0->normal += cross4;
-    v1->normal += cross4;
-    v2->normal += cross4;
+    v0->normal += cross;
+    v1->normal += cross;
+    v2->normal += cross;
   }
 
   for (i = 0; i < vertexCount; ++i) {
@@ -261,8 +269,7 @@ static bool operator<(const FaceVertex &v0, const FaceVertex &v1)
 - (void)addVertexToCurrentGroup:(FaceVertex)fv
 {
   static const vector_float3 UP = { 0, 1, 0 };
-  //    static const vector_float2 ZERO2 = { 0, 0 };
-  //    static const vector_float4 RGBA_WHITE = { 1, 1, 1, 1 };
+  static const vector_float2 ZERO2 = { 0, 0 };
   static const uint16_t INVALID_INDEX = 0xffff;
 
   uint16_t groupIndex;
@@ -273,8 +280,7 @@ static bool operator<(const FaceVertex &v0, const FaceVertex &v1)
     WLVertex vertex;
     vertex.position = vertices[fv.vi];
     vertex.normal = (fv.ni != INVALID_INDEX) ? normals[fv.ni] : UP;
-    //        vertex.diffuseColor = RGBA_WHITE;
-    vertex.texCoord = (fv.ti != INVALID_INDEX) ? texCoords[fv.ti] : simd_make_float2_undef(0.0f);
+    vertex.texCoords = (fv.ti != INVALID_INDEX) ? texCoords[fv.ti] : ZERO2;
 
     groupVertices.push_back(vertex);
     groupIndex = groupVertices.size() - 1;

@@ -17,7 +17,9 @@
 typedef struct _WLVertex {
   simd_float4 position ATTRIB_POSITION;
   simd_float3 normal;
-  simd_float2 texCoord;
+  simd_float2 texCoords;
+  //  simd_float3 tangent;
+  //  simd_float3 binoarml;
 } WLVertex;
 
 typedef uint16_t WLInt16;

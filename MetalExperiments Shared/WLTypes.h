@@ -7,12 +7,12 @@
 #define WLTypes_h
 #import "WLShaderTypes.h"
 
-typedef NS_ENUM(NSUInteger, WLKeyEvent) {
+typedef enum {
   WLKeyEventUp,
   WLKeyEventDown,
   WLKeyEventLeft,
   WLKeyEventRight,
   WLKeyEventIdle
-};
+} WLKeyEvent;
 
 #endif /* WLTypes_h */
