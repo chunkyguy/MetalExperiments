@@ -47,6 +47,7 @@
 		79DAE0BB2458C392000F85EF /* WLPlaneMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0B72458C04C000F85EF /* WLPlaneMesh.m */; };
 		79DAE0BC2458C392000F85EF /* WLPlaneMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DAE0B72458C04C000F85EF /* WLPlaneMesh.m */; };
 		79DAE0C7245AD351000F85EF /* WLRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E436AB244E437700DAD61F /* WLRenderView.m */; };
+		79E0232F257BDF50002644CA /* WLTween.c in Sources */ = {isa = PBXBuildFile; fileRef = 79E0232E257BDF50002644CA /* WLTween.c */; };
 		79E436AC244E437700DAD61F /* WLRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E436AB244E437700DAD61F /* WLRenderView.m */; };
 		79F552BE244E31C300BC9E96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F552BD244E31C300BC9E96 /* AppDelegate.m */; };
 		79F552C1244E31C300BC9E96 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F552C0244E31C300BC9E96 /* GameViewController.m */; };
@@ -228,7 +229,6 @@
 		79CBED9124524DE300916540 /* WLMath.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = WLMath.c; sourceTree = "<group>"; };
 		79DAE055245463C8000F85EF /* WLRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLRenderer.h; sourceTree = "<group>"; };
 		79DAE056245463C8000F85EF /* WLRenderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLRenderer.m; sourceTree = "<group>"; };
-		79DAE05B24546440000F85EF /* WLTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTypes.h; sourceTree = "<group>"; };
 		79DAE05C2454DF87000F85EF /* WLMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLMesh.h; sourceTree = "<group>"; };
 		79DAE05D2454DF87000F85EF /* WLMesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLMesh.m; sourceTree = "<group>"; };
 		79DAE0672455A494000F85EF /* WLUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLUtils.h; sourceTree = "<group>"; };
@@ -251,6 +251,8 @@
 		79DAE0B42458BE9F000F85EF /* WLPlane.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPlane.m; sourceTree = "<group>"; };
 		79DAE0B62458C04C000F85EF /* WLPlaneMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPlaneMesh.h; sourceTree = "<group>"; };
 		79DAE0B72458C04C000F85EF /* WLPlaneMesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPlaneMesh.m; sourceTree = "<group>"; };
+		79E0232D257BDF50002644CA /* WLTween.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLTween.h; sourceTree = "<group>"; };
+		79E0232E257BDF50002644CA /* WLTween.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = WLTween.c; sourceTree = "<group>"; };
 		79E436AA244E437700DAD61F /* WLRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLRenderView.h; sourceTree = "<group>"; };
 		79E436AB244E437700DAD61F /* WLRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLRenderView.m; sourceTree = "<group>"; };
 		79F552B3244E31C000BC9E96 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
@@ -364,6 +366,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		792287FA257BD07B00C8EB6C /* ogre */ = {
+			isa = PBXGroup;
+			children = (
+				79FC9E10246B426D00ADAEB3 /* ao_ears.png */,
+				79FC9E11246B426D00ADAEB3 /* ogre_diffuse.png */,
+				79FC9DEE246B426D00ADAEB3 /* ogre_normalmap.png */,
+			);
+			name = ogre;
+			sourceTree = "<group>";
+		};
+		792287FE257BD99300C8EB6C /* AppEngine */ = {
+			isa = PBXGroup;
+			children = (
+				79E436AA244E437700DAD61F /* WLRenderView.h */,
+				79E436AB244E437700DAD61F /* WLRenderView.m */,
+			);
+			name = AppEngine;
+			sourceTree = "<group>";
+		};
 		796FE043257934AD00330924 /* Model Loader */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +414,8 @@
 			children = (
 				796FE043257934AD00330924 /* Model Loader */,
 				79CBED9024524DE300916540 /* WLMath.h */,
+				79E0232D257BDF50002644CA /* WLTween.h */,
+				79E0232E257BDF50002644CA /* WLTween.c */,
 				79CBED9124524DE300916540 /* WLMath.c */,
 				79DAE0672455A494000F85EF /* WLUtils.h */,
 				79DAE0682455A494000F85EF /* WLUtils.m */,
@@ -402,38 +425,29 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		79DAE0A024576CF2000F85EF /* Renderer */ = {
+		79DAE0A024576CF2000F85EF /* RenderingEngine */ = {
 			isa = PBXGroup;
 			children = (
-				79DAE05B24546440000F85EF /* WLTypes.h */,
 				79FC9DDD246B375F00ADAEB3 /* WLShaderTypes.h */,
 				79F552B3244E31C000BC9E96 /* Shaders.metal */,
 				79DAE055245463C8000F85EF /* WLRenderer.h */,
 				79DAE056245463C8000F85EF /* WLRenderer.m */,
-				79E436AA244E437700DAD61F /* WLRenderView.h */,
-				79E436AB244E437700DAD61F /* WLRenderView.m */,
-			);
-			name = Renderer;
-			sourceTree = "<group>";
-		};
-		79DAE0A124576D0C000F85EF /* Scene */ = {
-			isa = PBXGroup;
-			children = (
 				79DAE093245768A6000F85EF /* WLScene.h */,
 				79DAE094245768A6000F85EF /* WLScene.m */,
 				79DAE0712455B0EC000F85EF /* WLCamera.h */,
 				79DAE0722455B0EC000F85EF /* WLCamera.m */,
+				79DAE06C2455ABE8000F85EF /* WLActor.h */,
+				79DAE06D2455ABE8000F85EF /* WLActor.m */,
 				79DAE0A324576D91000F85EF /* Actors */,
 				79DAE06124559DDB000F85EF /* Mesh */,
+				79DAE09924576C79000F85EF /* Utils */,
 			);
-			name = Scene;
+			name = RenderingEngine;
 			sourceTree = "<group>";
 		};
 		79DAE0A324576D91000F85EF /* Actors */ = {
 			isa = PBXGroup;
 			children = (
-				79DAE06C2455ABE8000F85EF /* WLActor.h */,
-				79DAE06D2455ABE8000F85EF /* WLActor.m */,
 				79DAE0A424576DAB000F85EF /* WLOBJActor.h */,
 				79DAE0A524576DAB000F85EF /* WLOBJActor.m */,
 				79DAE0B32458BE9F000F85EF /* WLPlane.h */,
@@ -458,9 +472,8 @@
 			children = (
 				79F552B4244E31C300BC9E96 /* Assets.xcassets */,
 				79FC9DDE246B426D00ADAEB3 /* assets */,
-				79DAE0A024576CF2000F85EF /* Renderer */,
-				79DAE0A124576D0C000F85EF /* Scene */,
-				79DAE09924576C79000F85EF /* Utils */,
+				792287FE257BD99300C8EB6C /* AppEngine */,
+				79DAE0A024576CF2000F85EF /* RenderingEngine */,
 			);
 			path = "MetalExperiments Shared";
 			sourceTree = "<group>";
@@ -548,12 +561,10 @@
 				79FC9DE8246B426D00ADAEB3 /* mybrick */,
 				79FC9DEC246B426D00ADAEB3 /* fire.png */,
 				79FC9DED246B426D00ADAEB3 /* brick1.jpg */,
-				79FC9DEE246B426D00ADAEB3 /* ogre_normalmap.png */,
 				79FC9DEF246B426D00ADAEB3 /* hardwood2_diffuse.jpg */,
 				79FC9DF0246B426D00ADAEB3 /* cube */,
 				79FC9E0F246B426D00ADAEB3 /* hardwood2_roughness.jpg */,
-				79FC9E10246B426D00ADAEB3 /* ao_ears.png */,
-				79FC9E11246B426D00ADAEB3 /* ogre_diffuse.png */,
+				792287FA257BD07B00C8EB6C /* ogre */,
 				79FC9E12246B426D00ADAEB3 /* cement.jpg */,
 				79FC9E13246B426D00ADAEB3 /* utc32.tga */,
 				79FC9E14246B426D00ADAEB3 /* flower.png */,
@@ -965,6 +976,7 @@
 				79DAE0B52458BE9F000F85EF /* WLPlane.m in Sources */,
 				79DAE0732455B0EC000F85EF /* WLCamera.m in Sources */,
 				79DAE0AC24576F05000F85EF /* MBEOBJGroup.mm in Sources */,
+				79E0232F257BDF50002644CA /* WLTween.c in Sources */,
 				79DAE0B82458C04C000F85EF /* WLPlaneMesh.m in Sources */,
 				79DAE05E2454DF87000F85EF /* WLMesh.m in Sources */,
 				79F552BE244E31C300BC9E96 /* AppDelegate.m in Sources */,

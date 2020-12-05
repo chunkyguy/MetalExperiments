@@ -36,7 +36,7 @@
 
 #elif TARGET_OS_OSX
 
-- (void)setUpLayer
+- (void)setUpMetalLayer
 {
   [self setWantsLayer:YES];
   _metalLayer = [CAMetalLayer layer];
@@ -78,7 +78,7 @@
 
 - (void)setUp
 {
-  [self setUpLayer];
+  [self setUpMetalLayer];
 
   _renderer = [[WLRenderer alloc] init];
   _scene = [[WLScene alloc] init];

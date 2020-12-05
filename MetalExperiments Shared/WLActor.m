@@ -5,7 +5,7 @@
 
 #import "WLActor.h"
 #import "WLMath.h"
-#import "WLTypes.h"
+#import "WLShaderTypes.h"
 #import "WLUtils.h"
 #import <MetalKit/MTKTextureLoader.h>
 
@@ -56,8 +56,7 @@
   return nil;
 }
 
-- (void)render:(id<MTLRenderCommandEncoder>)command
-        camera:(WLCamera *)camera
+- (void)render:(id<MTLRenderCommandEncoder>)command camera:(WLCamera *)camera
 {
   matrix_float4x4 mMatrix = self.modelMatrix;
   matrix_float4x4 mvMatrix = matrix_multiply(camera.viewMatrix, mMatrix);

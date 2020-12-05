@@ -4,7 +4,6 @@
 //
 
 #import "WLCamera.h"
-#import "WLTypes.h"
 #import <Foundation/Foundation.h>
 #import <Metal/Metal.h>
 
@@ -14,9 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setUp:(id<MTLDevice>)device;
 - (void)update:(float)dt
          event:(WLKeyEvent)event;
-
-@property (nonatomic, readonly) WLCamera *camera;
-@property (nonatomic, readonly) NSArray *actors;
+- (void)render:(id<MTLRenderCommandEncoder>)command;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -4,7 +4,7 @@
 //
 
 #import "WLPlaneMesh.h"
-#import "WLTypes.h"
+#import "WLShaderTypes.h"
 
 @interface WLPlaneMesh () {
   id<MTLBuffer> _vertexBuffer;

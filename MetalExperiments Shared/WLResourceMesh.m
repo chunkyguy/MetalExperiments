@@ -6,7 +6,7 @@
 #import "WLResourceMesh.h"
 #import "MBEOBJGroup.h"
 #import "MBEOBJModel.h"
-#import "WLTypes.h"
+#import "WLShaderTypes.h"
 #import "WLUtils.h"
 
 @interface WLResourceMesh () {
@@ -22,7 +22,7 @@
 {
   self = [super initWithDevice:device];
   if (self) {
-    MBEOBJModel *model = [[MBEOBJModel alloc] initWithContentsOfURL:resource generateNormals:YES];
+    MBEOBJModel *model = [[MBEOBJModel alloc] initWithContentsOfURL:resource generateNormals:NO];
     _model = [[model groups] firstObject];
     [self loadBuffers];
   }

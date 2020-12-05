@@ -3,9 +3,16 @@
 // Copyright © 2020 whackylabs. All rights reserved.
 //
 
-#import "WLTypes.h"
 #import <Foundation/Foundation.h>
 #import <simd/simd.h>
+
+typedef enum {
+  WLKeyEventUp,
+  WLKeyEventDown,
+  WLKeyEventLeft,
+  WLKeyEventRight,
+  WLKeyEventIdle
+} WLKeyEvent;
 
 NS_ASSUME_NONNULL_BEGIN
 

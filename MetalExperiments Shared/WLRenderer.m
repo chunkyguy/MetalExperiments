@@ -9,7 +9,6 @@
 #import "WLImage.h"
 #import "WLMath.h"
 #import "WLMesh.h"
-#import "WLTypes.h"
 
 const WLRendererConfig gConfig = {
   .pixelFormat = MTLPixelFormatBGRA8Unorm,
@@ -83,10 +82,7 @@ const WLRendererConfig gConfig = {
   id<MTLRenderCommandEncoder> command = [self renderCommandWithTexture:texture
                                                             loadAction:MTLLoadActionClear
                                                                 cmdBuf:cmdBuf];
-  for (NSInteger i = 0; i < scene.actors.count; ++i) {
-    [[scene.actors objectAtIndex:i] render:command
-                                    camera:scene.camera];
-  }
+  [scene render:command];
   [command endEncoding];
   [cmdBuf presentDrawable:drawable];
   [cmdBuf commit];
@@ -112,7 +108,7 @@ const WLRendererConfig gConfig = {
   [command setRenderPipelineState:_pipeline];
   [command setDepthStencilState:_depth];
   [command setFrontFacingWinding:MTLWindingCounterClockwise];
-  //  [command setCullMode:MTLCullModeBack];
+  [command setCullMode:MTLCullModeBack];
 
   return command;
 }

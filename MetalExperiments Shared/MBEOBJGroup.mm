@@ -1,5 +1,5 @@
 #import "MBEOBJGroup.h"
-#import "WLTypes.h"
+#import "WLShaderTypes.h"
 
 @implementation MBEOBJGroup
 

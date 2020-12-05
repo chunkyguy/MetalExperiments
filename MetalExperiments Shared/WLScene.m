@@ -28,15 +28,11 @@
 
 - (void)setUp:(id<MTLDevice>)device
 {
-  //  WLPlane *floor = [[WLPlane alloc] initWithDevice:device
-  //                        direction:WLPlaneDirectionBottom];
-  //  floor.textureNames = @[@"brick1.jpg, @moss.png"];
-
   WLOBJActor *actor = [[WLOBJActor alloc] initWithDevice:device
                                                    named:@"bs_ears.obj"
                                                 position:simd_make_float3(0.0f)];
   [actor setSpeed:WLOBJActorRotationSpeedNone];
-  actor.textureNames = @[ @"ogre_diffuse.png" ];
+  actor.textureNames = @[ @"ogre_diffuse.png", @"ogre_normalmap.png" ];
   _actors = @[ actor ];
 }
 
@@ -48,13 +44,11 @@
   }
 }
 
-- (WLCamera *)camera
+- (void)render:(id<MTLRenderCommandEncoder>)command
 {
-  return _camera;
+  for (WLActor *actor in _actors) {
+    [actor render:command camera:_camera];
+  }
 }
 
-- (NSArray *)actors
-{
-  return [_actors copy];
-}
 @end
