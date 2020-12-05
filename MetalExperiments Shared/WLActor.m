@@ -37,7 +37,6 @@
     id<MTLTexture> texture = [_texLoader newTextureWithContentsOfURL:[WLUtils resourceNamed:textureName]
                                                              options:@{ MTKTextureLoaderOptionOrigin : MTKTextureLoaderOriginBottomLeft }
                                                                error:nil];
-    NSParameterAssert(error == nil);
     [_textures addObject:texture];
   }
 }
